@@ -1,0 +1,1124 @@
+mysql> show database;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| student            |
+| sys                |
+| tmp                |
++--------------------+
+6 rows in set (0.12 sec)
+
+mysql> use student;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select database();
++------------+
+| database() |
++------------+
+| student    |
++------------+
+1 row in set (0.00 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| course            |
+| grade             |
+| student           |
++-------------------+
+3 rows in set (0.00 sec)
+
+mysql> create table tmp(
+    -> id int primary key,
+    -> name varchar(30) 
+    -> ) default charset=utf8 engine=innodb;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc tmp;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> show create table tmp;
++-------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| Table | Create Table                                                                                                                               |
++-------+--------------------------------------------------------------------------------------------------------------------------------------------+
+| tmp   | CREATE TABLE `tmp` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 |
++-------+--------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> desc tmp;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int(11)     | NO   | PRI | NULL    |       |
+| name  | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table tmp modif id int primary key auto_increment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'modif id int primary key auto_increment' at line 1
+mysql> alter table tmp modi id int primary key auto_increment;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'modi id int primary key auto_increment' at line 1
+mysql> alter table tmp modify id int primary key auto_increment;
+ERROR 1068 (42000): Multiple primary key defined
+mysql> alter table tmp drop id;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table tmp modify id int primary key auto_increment;
+ERROR 1054 (42S22): Unknown column 'id' in 'tmp'
+mysql> alter table tmp add id int primary key auto_increment;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tmp;
++-------+-------------+------+-----+---------+----------------+
+| Field | Type        | Null | Key | Default | Extra          |
++-------+-------------+------+-----+---------+----------------+
+| name  | varchar(30) | YES  |     | NULL    |                |
+| id    | int(11)     | NO   | PRI | NULL    | auto_increment |
++-------+-------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into tmp(name) values('tom');
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from tmp;
++------+----+
+| name | id |
++------+----+
+| tom  |  1 |
++------+----+
+1 row in set (0.00 sec)
+
+mysql> insert into tmp(name) values('ddd');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from tmp;
++------+----+
+| name | id |
++------+----+
+| tom  |  1 |
+| ddd  |  2 |
++------+----+
+2 rows in set (0.00 sec)
+
+mysql> desc course;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| cno     | char(4)     | NO   | PRI | NULL    |       |
+| cname   | varchar(30) | NO   |     | NULL    |       |
+| ccredit | float       | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into course(cno,cname,ccredit) values('0001','计算机组成原理',4);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into course values('0002','python基础',4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into course  values('0003','数据库原理',4),('0004','编译原理',6);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from course;
++------+-----------------------+---------+
+| cno  | cname                 | ccredit |
++------+-----------------------+---------+
+| 0001 | 计算机组成原理        |       4 |
+| 0002 | python基础            |       4 |
+| 0003 | 数据库原理            |       4 |
+| 0004 | 编译原理              |       6 |
+| 1001 | 计算机导论            |       2 |
+| 1002 | python基础            |    NULL |
++------+-----------------------+---------+
+6 rows in set (0.00 sec)
+
+mysql> delete from course where cno='1001';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> delete from course where cno='1002';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from course;
++------+-----------------------+---------+
+| cno  | cname                 | ccredit |
++------+-----------------------+---------+
+| 0001 | 计算机组成原理        |       4 |
+| 0002 | python基础            |       4 |
+| 0003 | 数据库原理            |       4 |
+| 0004 | 编译原理              |       6 |
++------+-----------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> update course set ccredit=4 where cname='编译原理'
+    -> ;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from course;
++------+-----------------------+---------+
+| cno  | cname                 | ccredit |
++------+-----------------------+---------+
+| 0001 | 计算机组成原理        |       4 |
+| 0002 | python基础            |       4 |
+| 0003 | 数据库原理            |       4 |
+| 0004 | 编译原理              |       4 |
++------+-----------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> update course set ccredit = ccredit - 1 ;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select * from course;
++------+-----------------------+---------+
+| cno  | cname                 | ccredit |
++------+-----------------------+---------+
+| 0001 | 计算机组成原理        |       3 |
+| 0002 | python基础            |       3 |
+| 0003 | 数据库原理            |       3 |
+| 0004 | 编译原理              |       3 |
++------+-----------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select sname,sex from student;
++-----------+------+
+| sname     | sex  |
++-----------+------+
+| 大傻仔    | 男   |
+| 李四      | 男   |
+| 大兵      | 男   |
+| 王五      | 男   |
+| 赵六      | 男   |
+| 于谦      | 女   |
+| 郭德刚    | 女   |
+| 岳云鹏    | 男   |
+| 张云雷    | 男   |
+| 侯耀文    | 女   |
++-----------+------+
+10 rows in set (0.00 sec)
+
+mysql> select * from course;
++------+-----------------------+---------+
+| cno  | cname                 | ccredit |
++------+-----------------------+---------+
+| 0001 | 计算机组成原理        |       3 |
+| 0002 | python基础            |       3 |
+| 0003 | 数据库原理            |       3 |
+| 0004 | 编译原理              |       3 |
++------+-----------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.01 sec)
+
+mysql> select distinct sex from student;
++------+
+| sex  |
++------+
+| 男   |
+| 女   |
++------+
+2 rows in set (0.01 sec)
+
+mysql> select * from stduent where sclass='bj1901';
+ERROR 1146 (42S02): Table 'student.stduent' doesn't exist
+mysql> select * from student where sclass='bj1901';
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student where 25 < sage <30 and 30<sage<40;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student where  30<sage<40;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student where  sage between 30 and 40;;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+8 rows in set (0.00 sec)
+
+ERROR: 
+No query specified
+
+mysql> select * from student where  sage between 30 and 40;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from student where hobby is null;
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student where sname like '李%';
++--------+--------+------+------+--------+-------+
+| sno    | sname  | sage | sex  | sclass | hobby |
++--------+--------+------+------+--------+-------+
+| 100002 | 李四   |   22 | 男   | bj1901 | NULL  |
++--------+--------+------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where sname like '_德%';
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where sname like ' %德';
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) num from student;
++-----+
+| num |
++-----+
+|  10 |
++-----+
+1 row in set (0.01 sec)
+
+mysql> select * from student order by sage desc;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student order by sage desc,sclass;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student order by sage desc limit 2,5;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
++--------+-----------+------+------+--------+----------------------+
+5 rows in set (0.00 sec)
+
+mysql> select sclass, count(sex) from student group by sclass ;
++--------+------------+
+| sclass | count(sex) |
++--------+------------+
+| bj1901 |          7 |
+| bj1902 |          3 |
++--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select sclass, count(sex) from student group by sclass,sex;
++--------+------------+
+| sclass | count(sex) |
++--------+------------+
+| bj1901 |          5 |
+| bj1901 |          2 |
+| bj1902 |          2 |
+| bj1902 |          1 |
++--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select sclass, sex,count(sex) from student group by sclass,sex;
++--------+------+------------+
+| sclass | sex  | count(sex) |
++--------+------+------------+
+| bj1901 | 男   |          5 |
+| bj1901 | 女   |          2 |
+| bj1902 | 男   |          2 |
+| bj1902 | 女   |          1 |
++--------+------+------------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> mysql> 
+mysql> select * from (select * from student where slass='bj1901') tmp;
+ERROR 1054 (42S22): Unknown column 'slass' in 'where clause'
+mysql> select * from (select * from student where sclass='bj1901') tmp;
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from (select * from student where sclass='bj1901') tmp where sex='女'
+    -> ;
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student where sage = (select max(sage) from stduent);
+ERROR 1146 (42S02): Table 'student.stduent' doesn't exist
+mysql> select * from student where sage = (select max(sage) from student);
++--------+--------+------+------+--------+-------+
+| sno    | sname  | sage | sex  | sclass | hobby |
++--------+--------+------+------+--------+-------+
+| 100003 | 大兵   |   40 | 男   | bj1901 | NULL  |
++--------+--------+------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where sage = (select sage from student);
+ERROR 1242 (21000): Subquery returns more than 1 row
+mysql> select * from student where sage = (select max(sage) from student);
++--------+--------+------+------+--------+-------+
+| sno    | sname  | sage | sex  | sclass | hobby |
++--------+--------+------+------+--------+-------+
+| 100003 | 大兵   |   40 | 男   | bj1901 | NULL  |
++--------+--------+------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where sage in (select max(sage) from student);
++--------+--------+------+------+--------+-------+
+| sno    | sname  | sage | sex  | sclass | hobby |
++--------+--------+------+------+--------+-------+
+| 100003 | 大兵   |   40 | 男   | bj1901 | NULL  |
++--------+--------+------+------+--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from student where sage < (select avg(sage) from student);
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+2 rows in set (0.01 sec)
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select sclass, max(sage) from student group by sclass
+    -> ;
++--------+-----------+
+| sclass | max(sage) |
++--------+-----------+
+| bj1901 |        40 |
+| bj1902 |        31 |
++--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student group by sclass;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'student.student.sno' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select sclass, max(sage) from student group by sclass;
++--------+-----------+
+| sclass | max(sage) |
++--------+-----------+
+| bj1901 |        40 |
+| bj1902 |        31 |
++--------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> show tables;
++-------------------+
+| Tables_in_student |
++-------------------+
+| course            |
+| grade             |
+| student           |
+| tmp               |
++-------------------+
+4 rows in set (0.00 sec)
+
+mysql> desc grade;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| sno   | char(6) | NO   | PRI | NULL    |       |
+| cno   | char(4) | NO   | PRI | NULL    |       |
+| score | float   | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into grade values('100001','0001',87);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from course;
++------+-----------------------+---------+
+| cno  | cname                 | ccredit |
++------+-----------------------+---------+
+| 0001 | 计算机组成原理        |       3 |
+| 0002 | python基础            |       3 |
+| 0003 | 数据库原理            |       3 |
+| 0004 | 编译原理              |       3 |
++------+-----------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> insert into grade values('100001','0002',90),('100002','0003',78),('100005','0004',98);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from student join grade on student.sno=grade.sno;
++--------+-----------+------+------+--------+-------+--------+------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby | sno    | cno  | score |
++--------+-----------+------+------+--------+-------+--------+------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0001 |    87 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0002 |    90 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  | 100002 | 0003 |    78 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  | 100005 | 0004 |    98 |
++--------+-----------+------+------+--------+-------+--------+------+-------+
+4 rows in set (0.01 sec)
+
+mysql> select * from student join grade on student.sno=grade.sno join course on course.cno=grade.cno;
++--------+-----------+------+------+--------+-------+--------+------+-------+------+-----------------------+---------+
+| sno    | sname     | sage | sex  | sclass | hobby | sno    | cno  | score | cno  | cname                 | ccredit |
++--------+-----------+------+------+--------+-------+--------+------+-------+------+-----------------------+---------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0001 |    87 | 0001 | 计算机组成原理        |       3 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0002 |    90 | 0002 | python基础            |       3 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  | 100002 | 0003 |    78 | 0003 | 数据库原理            |       3 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  | 100005 | 0004 |    98 | 0004 | 编译原理              |       3 |
++--------+-----------+------+------+--------+-------+--------+------+-------+------+-----------------------+---------+
+4 rows in set (0.00 sec)
+
+mysql> mysql> select sname,cname,grade from student join grade on student.sno=grade.sno join course on course.cno=grade.cno;
+ERROR 1054 (42S22): Unknown column 'grade' in 'field list'
+mysql> select sname,cname,score from student join grade on student.sno=grade.sno join course on course.cno=grade.cno;
++-----------+-----------------------+-------+
+| sname     | cname                 | score |
++-----------+-----------------------+-------+
+| 大傻仔    | 计算机组成原理        |    87 |
+| 大傻仔    | python基础            |    90 |
+| 李四      | 数据库原理            |    78 |
+| 赵六      | 编译原理              |    98 |
++-----------+-----------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select sno,sname,cname,score from student join grade on student.sno=grade.sno join course on course.cno=grade.cno;
+ERROR 1052 (23000): Column 'sno' in field list is ambiguous
+mysql> select student.sno,sname,cname,score from student join grade on student.sno=grade.sno join course on course.cno=grade.cno;
++--------+-----------+-----------------------+-------+
+| sno    | sname     | cname                 | score |
++--------+-----------+-----------------------+-------+
+| 100001 | 大傻仔    | 计算机组成原理        |    87 |
+| 100001 | 大傻仔    | python基础            |    90 |
+| 100002 | 李四      | 数据库原理            |    78 |
+| 100005 | 赵六      | 编译原理              |    98 |
++--------+-----------+-----------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select s.sno,sname,cname,score from student s join grade g on s.sno=g.sno join course c on c.cno=g.cno; +--------+-----------+-----------------------+-------+
+| sno    | sname     | cname                 | score |
++--------+-----------+-----------------------+-------+
+| 100001 | 大傻仔    | 计算机组成原理        |    87 |
+| 100001 | 大傻仔    | python基础            |    90 |
+| 100002 | 李四      | 数据库原理            |    78 |
+| 100005 | 赵六      | 编译原理              |    98 |
++--------+-----------+-----------------------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select s.sno,sname,cname,score from student s join grade g on s.sno=g.sno join course c on c.cno=g.cno where score >=80;
++--------+-----------+-----------------------+-------+
+| sno    | sname     | cname                 | score |
++--------+-----------+-----------------------+-------+
+| 100001 | 大傻仔    | 计算机组成原理        |    87 |
+| 100001 | 大傻仔    | python基础            |    90 |
+| 100005 | 赵六      | 编译原理              |    98 |
++--------+-----------+-----------------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student s,grade g,course c where s.sno = g.sno and g.cno=c.cno and score>80;
++--------+-----------+------+------+--------+-------+--------+------+-------+------+-----------------------+---------+
+| sno    | sname     | sage | sex  | sclass | hobby | sno    | cno  | score | cno  | cname                 | ccredit |
++--------+-----------+------+------+--------+-------+--------+------+-------+------+-----------------------+---------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0001 |    87 | 0001 | 计算机组成原理        |       3 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0002 |    90 | 0002 | python基础            |       3 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  | 100005 | 0004 |    98 | 0004 | 编译原理              |       3 |
++--------+-----------+------+------+--------+-------+--------+------+-------+------+-----------------------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select s.sno,sname,cname,score from student s,grade g,course c where s.sno = g.sno and g.cno=c.cno and score>80;
++--------+-----------+-----------------------+-------+
+| sno    | sname     | cname                 | score |
++--------+-----------+-----------------------+-------+
+| 100001 | 大傻仔    | 计算机组成原理        |    87 |
+| 100001 | 大傻仔    | python基础            |    90 |
+| 100005 | 赵六      | 编译原理              |    98 |
++--------+-----------+-----------------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno;
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno where sclass='bj1901';
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> insert into grade values('100006','0003',87);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno;
++--------+-----------+------+------+--------+---------------+
+| sno    | sname     | sage | sex  | sclass | hobby         |
++--------+-----------+------+------+--------+---------------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL          |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL          |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头     |
++--------+-----------+------+------+--------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> select s.* from student s join grade g on s.sno = g.sno where sclass='bj1901';
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student s join grade g on s.sno = g.sno 
+    -> ;
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby         | sno    | cno  | score |
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          | 100001 | 0001 |    87 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          | 100001 | 0002 |    90 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL          | 100002 | 0003 |    78 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL          | 100005 | 0004 |    98 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头     | 100006 | 0003 |    87 |
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> create table rank(
+    -> down float ,
+    -> up float,
+    -> rank char(1) primary key);
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into rank values(90,100,'A'),(80,89,'B');
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from student s join grade g on s.sno = g.sno join rank r on r.rank='A' and score>down;
++--------+--------+------+------+--------+-------+--------+------+-------+------+------+------+
+| sno    | sname  | sage | sex  | sclass | hobby | sno    | cno  | score | down | up   | rank |
++--------+--------+------+------+--------+-------+--------+------+-------+------+------+------+
+| 100005 | 赵六   |   30 | 男   | bj1901 | NULL  | 100005 | 0004 |    98 |   90 |  100 | A    |
++--------+--------+------+------+--------+-------+--------+------+-------+------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select * from student s join grade g on s.sno = g.sno join rank r on r.rank='A' and score>=down;
++--------+-----------+------+------+--------+-------+--------+------+-------+------+------+------+
+| sno    | sname     | sage | sex  | sclass | hobby | sno    | cno  | score | down | up   | rank |
++--------+-----------+------+------+--------+-------+--------+------+-------+------+------+------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  | 100001 | 0002 |    90 |   90 |  100 | A    |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  | 100005 | 0004 |    98 |   90 |  100 | A    |
++--------+-----------+------+------+--------+-------+--------+------+-------+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from student s join grade g on s.sno = g.sno;
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby         | sno    | cno  | score |
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          | 100001 | 0001 |    87 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          | 100001 | 0002 |    90 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL          | 100002 | 0003 |    78 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL          | 100005 | 0004 |    98 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头     | 100006 | 0003 |    87 |
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from student s left join grade g on s.sno = g.sno;
++--------+-----------+------+------+--------+----------------------+--------+------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby                | sno    | cno  | score |
++--------+-----------+------+------+--------+----------------------+--------+------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | 100001 | 0001 |    87 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | 100001 | 0002 |    90 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 | 100002 | 0003 |    78 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 | 100005 | 0004 |    98 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            | 100006 | 0003 |    87 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 | NULL   | NULL |  NULL |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 | NULL   | NULL |  NULL |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 | NULL   | NULL |  NULL |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       | NULL   | NULL |  NULL |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            | NULL   | NULL |  NULL |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 | NULL   | NULL |  NULL |
++--------+-----------+------+------+--------+----------------------+--------+------+-------+
+11 rows in set (0.00 sec)
+
+mysql> insert into grade values('9002','0001',90);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from student s right join grade g on s.sno = g.sno;
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby         | sno    | cno  | score |
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          | 100001 | 0001 |    87 |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL          | 100001 | 0002 |    90 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL          | 100002 | 0003 |    78 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL          | 100005 | 0004 |    98 |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头     | 100006 | 0003 |    87 |
+| NULL   | NULL      | NULL | NULL | NULL   | NULL          | 9002   | 0001 |    90 |
++--------+-----------+------+------+--------+---------------+--------+------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select * from student where sclass='bj1901';
++--------+-----------+------+------+--------+-------+
+| sno    | sname     | sage | sex  | sclass | hobby |
++--------+-----------+------+------+--------+-------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL  |
++--------+-----------+------+------+--------+-------+
+7 rows in set (0.00 sec)
+
+mysql> select * from student where sclass='bj1902';
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
++--------+-----------+------+------+--------+----------------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student where sclass='bj1902' union
+    -> select * from student where sclass='bj1901';
++--------+-----------+------+------+--------+----------------------+
+| sno    | sname     | sage | sex  | sclass | hobby                |
++--------+-----------+------+------+--------+----------------------+
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            |
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 |
++--------+-----------+------+------+--------+----------------------+
+10 rows in set (0.00 sec)
+
+mysql> select sno,sname from student where sclass='bj1902' union select sno from student where sclass='bj1901';
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+mysql> select sno,sname from student where sclass='bj1902' union select sno,sname from student where sclass='bj1901';
++--------+-----------+
+| sno    | sname     |
++--------+-----------+
+| 100006 | 于谦      |
+| 100008 | 岳云鹏    |
+| 100009 | 张云雷    |
+| 100001 | 大傻仔    |
+| 100002 | 李四      |
+| 100003 | 大兵      |
+| 100004 | 王五      |
+| 100005 | 赵六      |
+| 100007 | 郭德刚    |
+| 100010 | 侯耀文    |
++--------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> select sno,sname from student where sclass='bj1902' union select sno,sclass from student where sclass='bj1901';
++--------+-----------+
+| sno    | sname     |
++--------+-----------+
+| 100006 | 于谦      |
+| 100008 | 岳云鹏    |
+| 100009 | 张云雷    |
+| 100001 | bj1901    |
+| 100002 | bj1901    |
+| 100003 | bj1901    |
+| 100004 | bj1901    |
+| 100005 | bj1901    |
+| 100007 | bj1901    |
+| 100010 | bj1901    |
++--------+-----------+
+10 rows in set (0.00 sec)
+
+mysql> select sno,sname from student where sclass='bj1902' order by sno  union select sno,sclass from student where sclass='bj1901';
+ERROR 1221 (HY000): Incorrect usage of UNION and ORDER BY
+mysql> select sno,sname from student where sclass='bj1902'   union select sno,sclass from student where sclass='bj1901' order by sno;
++--------+-----------+
+| sno    | sname     |
++--------+-----------+
+| 100001 | bj1901    |
+| 100002 | bj1901    |
+| 100003 | bj1901    |
+| 100004 | bj1901    |
+| 100005 | bj1901    |
+| 100006 | 于谦      |
+| 100007 | bj1901    |
+| 100008 | 岳云鹏    |
+| 100009 | 张云雷    |
+| 100010 | bj1901    |
++--------+-----------+
+10 rows in set (0.01 sec)
+
+mysql> alter table student add monitor char(6);
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+---------+
+| sno    | sname     | sage | sex  | sclass | hobby                | monitor |
++--------+-----------+------+------+--------+----------------------+---------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | NULL    |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 | NULL    |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 | NULL    |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 | NULL    |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 | NULL    |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            | NULL    |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 | NULL    |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       | NULL    |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            | NULL    |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 | NULL    |
++--------+-----------+------+------+--------+----------------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> update student set monitor='100007';
+Query OK, 10 rows affected (0.00 sec)
+Rows matched: 10  Changed: 10  Warnings: 0
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+---------+
+| sno    | sname     | sage | sex  | sclass | hobby                | monitor |
++--------+-----------+------+------+--------+----------------------+---------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | 100007  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 | 100007  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 | 100007  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 | 100007  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 | 100007  |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            | 100007  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 | 100007  |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       | 100007  |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            | 100007  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 | 100007  |
++--------+-----------+------+------+--------+----------------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> update student set monitor='100008' where sclass='bj1902';
+Query OK, 3 rows affected (0.00 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from student;
++--------+-----------+------+------+--------+----------------------+---------+
+| sno    | sname     | sage | sex  | sclass | hobby                | monitor |
++--------+-----------+------+------+--------+----------------------+---------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | 100007  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 | 100007  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 | 100007  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 | 100007  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 | 100007  |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            | 100008  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 | 100007  |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       | 100008  |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            | 100008  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 | 100007  |
++--------+-----------+------+------+--------+----------------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select * from student a join student b on a.sno=b.sno;
++--------+-----------+------+------+--------+----------------------+---------+--------+-----------+------+------+--------+----------------------+---------+
+| sno    | sname     | sage | sex  | sclass | hobby                | monitor | sno    | sname     | sage | sex  | sclass | hobby                | monitor |
++--------+-----------+------+------+--------+----------------------+---------+--------+-----------+------+------+--------+----------------------+---------+
+| 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | 100007  | 100001 | 大傻仔    |   20 | 男   | bj1901 | NULL                 | 100007  |
+| 100002 | 李四      |   22 | 男   | bj1901 | NULL                 | 100007  | 100002 | 李四      |   22 | 男   | bj1901 | NULL                 | 100007  |
+| 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 | 100007  | 100003 | 大兵      |   40 | 男   | bj1901 | NULL                 | 100007  |
+| 100004 | 王五      |   30 | 男   | bj1901 | NULL                 | 100007  | 100004 | 王五      |   30 | 男   | bj1901 | NULL                 | 100007  |
+| 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 | 100007  | 100005 | 赵六      |   30 | 男   | bj1901 | NULL                 | 100007  |
+| 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            | 100008  | 100006 | 于谦      |   30 | 女   | bj1902 | 抽烟,烫头            | 100008  |
+| 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 | 100007  | 100007 | 郭德刚    |   30 | 女   | bj1901 | NULL                 | 100007  |
+| 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       | 100008  | 100008 | 岳云鹏    |   31 | 男   | bj1902 | 抽烟,喝酒,烫头       | 100008  |
+| 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            | 100008  | 100009 | 张云雷    |   31 | 男   | bj1902 | 喝酒,烫头            | 100008  |
+| 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 | 100007  | 100010 | 侯耀文    |   30 | 女   | bj1901 | NULL                 | 100007  |
++--------+-----------+------+------+--------+----------------------+---------+--------+-----------+------+------+--------+----------------------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select a.sno,a.sname,a.sex,b.sno,b.sname,b.monitor from student a join student b on a.sno=b.sno;
++--------+-----------+------+--------+-----------+---------+
+| sno    | sname     | sex  | sno    | sname     | monitor |
++--------+-----------+------+--------+-----------+---------+
+| 100001 | 大傻仔    | 男   | 100001 | 大傻仔    | 100007  |
+| 100002 | 李四      | 男   | 100002 | 李四      | 100007  |
+| 100003 | 大兵      | 男   | 100003 | 大兵      | 100007  |
+| 100004 | 王五      | 男   | 100004 | 王五      | 100007  |
+| 100005 | 赵六      | 男   | 100005 | 赵六      | 100007  |
+| 100006 | 于谦      | 女   | 100006 | 于谦      | 100008  |
+| 100007 | 郭德刚    | 女   | 100007 | 郭德刚    | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008 | 岳云鹏    | 100008  |
+| 100009 | 张云雷    | 男   | 100009 | 张云雷    | 100008  |
+| 100010 | 侯耀文    | 女   | 100010 | 侯耀文    | 100007  |
++--------+-----------+------+--------+-----------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select a.sno,a.sname,a.sex,b.sno,b.sname,b.monitor from student a join student b on a.sno=b.monitor;
++--------+-----------+------+--------+-----------+---------+
+| sno    | sname     | sex  | sno    | sname     | monitor |
++--------+-----------+------+--------+-----------+---------+
+| 100007 | 郭德刚    | 女   | 100001 | 大傻仔    | 100007  |
+| 100007 | 郭德刚    | 女   | 100002 | 李四      | 100007  |
+| 100007 | 郭德刚    | 女   | 100003 | 大兵      | 100007  |
+| 100007 | 郭德刚    | 女   | 100004 | 王五      | 100007  |
+| 100007 | 郭德刚    | 女   | 100005 | 赵六      | 100007  |
+| 100008 | 岳云鹏    | 男   | 100006 | 于谦      | 100008  |
+| 100007 | 郭德刚    | 女   | 100007 | 郭德刚    | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008 | 岳云鹏    | 100008  |
+| 100008 | 岳云鹏    | 男   | 100009 | 张云雷    | 100008  |
+| 100007 | 郭德刚    | 女   | 100010 | 侯耀文    | 100007  |
++--------+-----------+------+--------+-----------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select distinct  a.sno,a.sname,a.sex,b.sno,b.sname,b.monitor from student a join student b on a.sno=b.monitor;
++--------+-----------+------+--------+-----------+---------+
+| sno    | sname     | sex  | sno    | sname     | monitor |
++--------+-----------+------+--------+-----------+---------+
+| 100007 | 郭德刚    | 女   | 100001 | 大傻仔    | 100007  |
+| 100007 | 郭德刚    | 女   | 100002 | 李四      | 100007  |
+| 100007 | 郭德刚    | 女   | 100003 | 大兵      | 100007  |
+| 100007 | 郭德刚    | 女   | 100004 | 王五      | 100007  |
+| 100007 | 郭德刚    | 女   | 100005 | 赵六      | 100007  |
+| 100008 | 岳云鹏    | 男   | 100006 | 于谦      | 100008  |
+| 100007 | 郭德刚    | 女   | 100007 | 郭德刚    | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008 | 岳云鹏    | 100008  |
+| 100008 | 岳云鹏    | 男   | 100009 | 张云雷    | 100008  |
+| 100007 | 郭德刚    | 女   | 100010 | 侯耀文    | 100007  |
++--------+-----------+------+--------+-----------+---------+
+10 rows in set (0.01 sec)
+
+mysql> select distinct  a.sno,a.sname,a.sex,b.monitor from student a join student b on a.sno=b.monitor;
++--------+-----------+------+---------+
+| sno    | sname     | sex  | monitor |
++--------+-----------+------+---------+
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008  |
++--------+-----------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select a.sno,a.sname,a.sex,b.monitor from student a join student b on a.sno=b.monitor;
++--------+-----------+------+---------+
+| sno    | sname     | sex  | monitor |
++--------+-----------+------+---------+
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008  |
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008  |
+| 100008 | 岳云鹏    | 男   | 100008  |
+| 100007 | 郭德刚    | 女   | 100007  |
++--------+-----------+------+---------+
+10 rows in set (0.00 sec)
+
+mysql> select distinct  a.sno,a.sname,a.sex,b.monitor from student a join student b on a.sno=b.monitor;
++--------+-----------+------+---------+
+| sno    | sname     | sex  | monitor |
++--------+-----------+------+---------+
+| 100007 | 郭德刚    | 女   | 100007  |
+| 100008 | 岳云鹏    | 男   | 100008  |
++--------+-----------+------+---------+
+2 rows in set (0.00 sec)
+

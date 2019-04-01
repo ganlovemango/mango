@@ -1,10 +1,10 @@
-#mysql数据库
+# mysql数据库
 
 ## 一、高级
 
 ### 1.1 子查询
 
-- 子查询嵌入到其他查询语句中查询语句，子查询只能出现在from，where中
+- 子查询嵌入到其他查询语句中查询语句，子查询只能出现在from，where、having中
 - 子查询不要用select *,exists除外
 
 ~~~
@@ -212,7 +212,7 @@ select * from zzl_student where sno = monitor and class='95031';
   rollback 回滚 撤销操作
   ~~~~
 
-  ​
+  
 
 ###2.2 授权管理(了解)
 
@@ -515,7 +515,7 @@ drop view 视图名
   ./conndb.py
   ~~~
 
-  ​
+  
 
 ### 7.2 pymysql中事务处理
 
