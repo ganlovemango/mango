@@ -20,7 +20,7 @@ select * from blog_article where cid in (
 select * from (select uid,username,gender from blog_user where gender='男') as user;
 ~~~
 
-###1.2 多表查询(`*****`)
+### 1.2 多表查询(`*****`)
 
 ~~~
 for category in blog_category:
@@ -180,16 +180,16 @@ select * from zzl_student where sno = monitor and class='95031';
 
 - 其它函数
 
-  | 函数名                                   | 功能                                                         |
-  | ---------------------------------------- | ------------------------------------------------------------ |
-  | convert(expr as type)/cast(expr as type) | 将表达式expr转换为type类型，type可以是：char(n)、date、datetime、integer、decimal |
-  | md5(str)                                 | 计算str的哈希值，返回一个 32位十六进制数字的二进制字符串     |
-  | sha1(str)/sha(str)                       | 计算str的哈希值，返回一个 40位十六进制数字的二进制字符串     |
+  | 函数名                                 |                                                         功能 |
+  | -------------------------------------- | -----------------------------------------------------------: |
+  | convert(expr ,type)/cast(expr as type) | 将表达式expr转换为type类型，type可以是：char(n)、date、datetime、integer、decimal |
+  | md5(str)                               |     计算str的哈希值，返回一个 32位十六进制数字的二进制字符串 |
+  | sha1(str)/sha(str)                     |     计算str的哈希值，返回一个 40位十六进制数字的二进制字符串 |
 
 
 ## 二、数据控制
 
-###2.1 事务
+### 2.1 事务
 
 - 事务把一组操作看做一个整体，要不都操作成功，要不都操作失败 。(ACID)
 - 表的数据库引擎必须是innodb，innodb支持事物，myisam不支持事务
@@ -214,7 +214,7 @@ select * from zzl_student where sno = monitor and class='95031';
 
   
 
-###2.2 授权管理(了解)
+### 2.2 授权管理(了解)
 
 - 创建用户
 
