@@ -47,7 +47,7 @@
 
    ```
    cursor = link.cursor()  
-      cursor=pymysql.Cursors.DictCursor()  #[{}]
+   cursor=pymysql.Cursors.DictCursor()  #[{}]
    print(cursor.rowcount) #打印受影响行数
    ```
 
@@ -82,17 +82,6 @@
    cursor.close()
    link.close()
    ```
-
-- 注意：
-
-  写完代码后，需要将py文件添加可执行权限 
-
-  ```
-  sudo chmod +x conndb.py
-  ./conndb.py
-  ```
-
-  ​
 
 ### 1.2 pymysql中事务处理
 
