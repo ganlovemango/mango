@@ -4,18 +4,6 @@ import pymysql
 import settings
 
 
-"""
-db = DBHelper()
-db.insert({})
-db.where().delete()
-db.where().update()
-db.fields().where().limit().orderby().select()
-db.where().fields().select()
-
-
-"SELECT {FIELDS} FROM {TABLE} {WHERE} {GROUPBY} {HAVING} {ORDERBY} {LIMIT}"
-"""
-
 class DBHelper:
     def __init__(self,table):
         self.table = table  # 表名
@@ -90,7 +78,6 @@ class DBHelper:
         self.options['having'] = self.options['having'].rstrip("and ")
         return self
 
-
                 #分组
     def groupby(self,*args):
         """
@@ -160,7 +147,7 @@ class DBHelper:
         # 1 如果字典的值是字符串，两边添加单引号
         self.__add_quote(data)
 
-        # 生成字段列表和值列表
+        # 2.生成字段列表和值列表
         keys = ''
         values = ''
         for key,value in data.items():
@@ -175,6 +162,20 @@ class DBHelper:
         print(sql)
         return self.execute(sql)
 
+    def update(self,data):
+        """
+
+        :param data: 字典
+        :return:
+        """
+        self.__add_quote(data)
+        self.options['value'] = ','.join([key+"="+value for key,value in data.items()])
+        sql = "UPDATE {table} SET {value} {where}".format(**self.options)
+        return self.execute(sql)
+
+    def delete(self):
+        sql = "DELETE FROM {table} {where}".format(**self.options)
+        return self.execute(sql)
     def execute(self,sql):
         self.sql = sql
         self.__init_options()
@@ -197,6 +198,14 @@ class DBHelper:
         for key in data:
             if isinstance(data[key],str):
                 data[key] = "'" + data[key] +"'"
+            else:
+                data[key] = str(data[key])
+    """"
+    get_by(sno='105')
+    get_by(snanme=''
+    get_by(sbirthday="")
+    
+    """
 
 if __name__ == "__main__":
     db = DBHelper('student')
@@ -208,3 +217,5 @@ if __name__ == "__main__":
     # print(db.sql)
     # print(db.__dict__)
     # db.insert({'sno':'112','sname':'tom','sbirthday':'2019-4-2'})
+    # db.where(sno='105').update({'sname':'ok','class':'95035'})
+    # db.where(sno='105').delete()
