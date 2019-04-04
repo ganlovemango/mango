@@ -21,7 +21,7 @@
   - sublime  、vim、note pad++
   - chrome浏览器
 
-##2. 认识标签
+## 2. 认识标签
 
 marquee标签的引入，学习标签应该：
 
@@ -306,9 +306,11 @@ marquee标签的引入，学习标签应该：
       -   value：提交按钮的标题
 
     - 重置按钮
+
       -   type：reset
 
     - 密码框
+
       -   type：password
 
     - 单选框
@@ -328,6 +330,7 @@ marquee标签的引入，学习标签应该：
       -   checked: 是否选中
 
     - 文件上传
+
       -   type：file
 
     - 隐藏按钮
