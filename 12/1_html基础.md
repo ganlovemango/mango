@@ -307,7 +307,8 @@ marquee标签的引入，学习标签应该：
 
     - 重置按钮
 
-      -   type：reset
+      - 清空用户输入
+      - type：reset
 
     - 密码框
 
@@ -453,7 +454,7 @@ marquee标签的引入，学习标签应该：
 
 
 作业：
-1）仿作大连民心网：<http://www.mxw.gov.cn/comp/jb_step2.html?tsly=pc&sqfl=1#pos_2&m=&openid=&id=5> 
+1）仿作大连民心网：http://www.mxwz.com/comp/jb_step2.html?tsly=pc&sqfl=&m=&openid=&id=89
 
 2）编写表格
 
