@@ -2,7 +2,10 @@ import os
 import hashlib
 from urllib.parse import parse_qs  #系统的查询参数解析方法
 
+import jinja2
+
 from DBHelper import DBHelper
+from Response import *
 
 # 处理模块
 
@@ -95,3 +98,47 @@ def load_static(req):
     return [data]
 
 
+# 学生列表
+# def student_list(req):
+#     db = DBHelper('student')
+#     data = db.select()
+#     print(data)
+#     # 加载学生列表源文件
+#     html = load_file('static/view/studentlist.html').decode('utf8')
+#     stu = ""
+#     # 生成行
+#     for rec in data:
+#         stu += "<tr><td>"+rec['sno']+"</td><td>"+rec['sname']+"</td></tr>"
+#
+#     html = html.format(student=stu)  #格式化字符串
+#     print(html)
+#     req.start_response("200 ok", [('ContentType', 'text/html')])
+#     return [html.encode('utf8')]
+# def student_list(req):
+#     db = DBHelper('student')
+#     data = db.select()
+#     # 实例化加载对象
+#     env = jinja2.Environment(loader=jinja2.FileSystemLoader("./static/view"))
+#     template = env.get_template('studentlist.html')  #加载模板
+#     # print(template)
+#     # 渲染模板文件，生成html源代码
+#     html = template.render(title='1902学生列表',data=data)
+#     # print(html)
+#     req.start_response("200 ok", [('ContentType', 'text/html')])
+#     return [html.encode('utf8')]
+
+def student_list(req):
+    db = DBHelper('student')
+    data = db.select()
+    return render(req,'studentlist.html',{'title':'1902','data':data})
+
+def student_detail(req,sno):
+    # sno = req.GET.get('sno')
+    print(sno)
+    db = DBHelper('student')
+    student = db.where(sno=sno).select()
+    if student:
+        student = student[0]
+        return render(req,'studentdetail.html',{'title':student['sname'],'data':student})
+    else:
+        return render(req,'404.html')

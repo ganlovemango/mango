@@ -5,4 +5,5 @@ patterns = [(r'^/$', view.index),
             (r'^/static',view.load_static),
             (r'^/register$',view.register),
             (r'^/doLogin$',view.do_login),
+            (r'^/studentlist$',view.student_list),
            ]

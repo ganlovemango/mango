@@ -8,3 +8,5 @@ db = {
     'charset' : 'utf8'  #
 }
 
+# 模板路径
+TEMPLATEPATH = "./static/view"

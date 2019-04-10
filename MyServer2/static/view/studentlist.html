@@ -2,12 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学生列表</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-<table border="1" width="80%" align="center">
+<table border="1" width="80%" align="center" cellspacing="0">
     <caption>学生列表</caption>
-    {student}
+    {% for student in data  %}
+        <tr align="center">
+            <td><a href="/studentdetail/{{ student.sno }}">{{ student.sno }}</a></td>
+            <td>{{ student.sname }}</td>
+        </tr>
+    {% endfor %}
 </table>
 </body>
 </html>

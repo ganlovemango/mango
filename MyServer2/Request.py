@@ -26,7 +26,10 @@ class Request:
 
     def __post_parameters(self):
         #参数长度，按字节计算
-        contentLength = int(self.environ.get('CONTENT_LENGTH', 0))
+        try:
+            contentLength = int(self.environ.get('CONTENT_LENGTH', 0))
+        except Exception as e:
+            contentLength = 0
 
         # post的指针
         fp = self.environ.get('wsgi.input')
