@@ -17,8 +17,6 @@ def load_file(fileName):
     except Exception as e:
         return b"File not Found"  # 文件不存在
 
-
-
 # 静态资源
 def load_static(req):
     path = req.environ.get('PATH_INFO')
@@ -48,3 +46,7 @@ def load_static(req):
         data = b'File Not Found'
         req.start_response("200 ok", [('ContentType', 'text/html')])
     return [data]
+
+# 首页
+def index(req):
+    return render(req,'blog.html')
