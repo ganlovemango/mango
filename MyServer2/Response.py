@@ -16,6 +16,21 @@ class Response:
         self.header.append(("ContentType",'text/html'))
         self.req.start_response(self.status,self.header)
         return [html.encode('utf8')]
+    # cookie
+    def set_cookie(self,key,value,expired=24*3600*3):
+        """
+        username=tom;Max-Age=3
+        :param key: 键
+        :param value: 值
+        :param expired: 过期时间，以秒为单位
+        :return:
+        """
+        cs = key + "=" +str(value) + ";"
+        if expired:  #如果设置了过期时间
+            cs += "Max-Age=" + str(expired)
+
+        self.header.append(('Set-Cookie',cs))
+
 
 # render
 def render(req,file,data):

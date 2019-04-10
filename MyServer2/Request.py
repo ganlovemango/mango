@@ -18,6 +18,16 @@ class Request:
         #POST参数字典
         self.POST = self.__post_parameters()
 
+        #cookie
+        self.cookie = environ.get('HTTP_COOKIE').split(";")
+        """
+        ['uid=1','username=admin']
+        """
+        self.cookie = [value.split('=')  for value in self.cookie]
+        self.cookie = {key.strip():value for key,value in self.cookie}
+
+
+
     def __get_parameters(self):
         paremeters = self.environ.get('QUERY_STRING')
         paremeters = parse_qs(paremeters)

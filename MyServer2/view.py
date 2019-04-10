@@ -19,10 +19,7 @@ def load_file(fileName):
 
 # 首页
 def index(req):
-    path = "static/view/index.html"
-    html = load_file(path)
-    req.start_response("200 ok",[('ContentType','text/html')])
-    return [html]
+    return render(req,'index.html',{'cookie':req.cookie})
 
 # 登录页面
 def login(req):
@@ -30,6 +27,16 @@ def login(req):
     html = load_file(path)
     req.start_response("200 ok", [('ContentType', 'text/html')])
     return [html]
+
+#退出登录
+def logout(req):
+    response= Response(req)
+    response.set_cookie('uid','',expired=-1)
+    response.set_cookie('username','',expired=-1)
+    response.header.append(('ContentType','text/html'))
+    response.req.start_response("200 ok",response.header)
+    return [b"<html><head><meta http-equiv='refresh' content='0;url=/login'></head><body></body></html>"]
+
 
 def do_login(req):
     # 获取请求方法类型
@@ -45,15 +52,21 @@ def do_login(req):
         res = db.where(username=username,password=password).select()
         print(db.sql)
         print(res)
-        req.start_response("200 ok", [('ContentType', 'text/html')])
-        # if res:
-        #     # 通过验证
-        #     return [b"<html><head><meta http-equiv='refresh' content='0;url=/'></head><body></body></html>"]
-        # else:
-            #跳转登录页面
-            # return [b"<html><head><meta http-equiv='refresh' content='0;url=/login'></head><body></body></html>"]
+        response = Response(req)
+        if res:
+            # 通过验证
+            uid = res[0]['uid']
+            username = res[0]['username']
+            response.set_cookie('uid',uid)
+            response.set_cookie('username',username)
+            response.header.append(("ContentType",'text/html'))
+            response.req.start_response("200 ok",response.header)
+            return [b"<html><head><meta http-equiv='refresh' content='0;url=/'></head><body></body></html>"]
+        else:
+            # 跳转登录页面
+            return [b"<html><head><meta http-equiv='refresh' content='0;url=/login'></head><body></body></html>"]
             # return [b"<meta http-equiv='refresh' content='0;url=/login'>"]
-        return [b'dologin']
+        # return [b'dologin']
     else:  #post
         username = req.POST.get('username')
         password = req.POST.get('password')
