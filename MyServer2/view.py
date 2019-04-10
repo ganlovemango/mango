@@ -15,31 +15,25 @@ def load_file(fileName):
         return b"File not Found"  # 文件不存在
 
 # 首页
-def index(environ,start_response):
+def index(req):
     path = "static/view/index.html"
     html = load_file(path)
-    start_response("200 ok",[('ContentType','text/html')])
+    req.start_response("200 ok",[('ContentType','text/html')])
     return [html]
 
 # 登录页面
-def login(environ,start_response):
+def login(req):
     path = "static/view/login.html"
     html = load_file(path)
-    start_response("200 ok", [('ContentType', 'text/html')])
+    req.start_response("200 ok", [('ContentType', 'text/html')])
     return [html]
 
-def do_login(environ,start_response):
+def do_login(req):
     # 获取请求方法类型
-    method = environ.get('REQUEST_METHOD','GET')
-    if method == 'GET':
-        paremeters = environ.get('QUERY_STRING')
-        paremeters = parse_qs(paremeters)
-        print(paremeters)
-        paremeters = {key:value[0] if len(value)==1 else value for key,value in paremeters.items()}
-        print(paremeters)
-        username = paremeters.get('username')
-        password = paremeters.get('password')
-        sex = paremeters.get('sex')
+    if req.method == 'GET':
+        username = req.GET.get('username')
+        password = req.GET.get('password')
+        sex = req.GET.get('sex')
         print(username,password)
         # 业务逻辑处理
         password = hashlib.sha1(password.encode('utf8')).hexdigest()
@@ -48,7 +42,7 @@ def do_login(environ,start_response):
         res = db.where(username=username,password=password).select()
         print(db.sql)
         print(res)
-        start_response("200 ok", [('ContentType', 'text/html')])
+        req.start_response("200 ok", [('ContentType', 'text/html')])
         # if res:
         #     # 通过验证
         #     return [b"<html><head><meta http-equiv='refresh' content='0;url=/'></head><body></body></html>"]
@@ -58,28 +52,21 @@ def do_login(environ,start_response):
             # return [b"<meta http-equiv='refresh' content='0;url=/login'>"]
         return [b'dologin']
     else:  #post
-        # 参数长度
-        contentLength = int(environ.get('CONTENT_LENGTH',0))
-        fp = environ.get('wsgi.input')
-        paremeters = fp.read(contentLength).decode('utf8')
-        paremeters = parse_qs(paremeters)
-        paremeters = {key: value[0] if len(value) == 1 else value for key, value in paremeters.items()}
-        username = paremeters.get('username')
-        password = paremeters.get('password')
-        sex = paremeters.get('sex')
-        print(paremeters)
+        username = req.POST.get('username')
+        password = req.POST.get('password')
+        sex = req.POST.get('sex')
         print(username,password,sex)
         # 业务逻辑处理
-    start_response("200 ok", [('ContentType', 'text/html')])
+    req.start_response("200 ok", [('ContentType', 'text/html')])
     return [b'world']
 
 
-def register(environ,start_response):
+def register(req):
     pass
 
 # 静态资源
-def load_static(environ,start_response):
-    path = environ.get('PATH_INFO')
+def load_static(req):
+    path = req.environ.get('PATH_INFO')
 
     print(path)
     contentType = {
@@ -90,7 +77,7 @@ def load_static(environ,start_response):
         '.jpeg' : 'image/jpeg',
         '.bmp':'image/bmp'
     }
-    rootPath = environ.get('root_path')
+    rootPath = req.environ.get('root_path')
     path = rootPath + path
     # 判断路径是否存在
     if path and os.path.exists(path):
@@ -99,12 +86,12 @@ def load_static(environ,start_response):
         ext = os.path.splitext(path)[1].lower()  # 文件后缀名
         #判断后缀是否在字典中
         if ext in contentType:
-            start_response("200 ok", [('ContentType', contentType[ext])])
+            req.start_response("200 ok", [('ContentType', contentType[ext])])
         else:
-            start_response("200 ok", [('ContentType', 'text/html')])
+            req.start_response("200 ok", [('ContentType', 'text/html')])
     else:
         data = b'File Not Found'
-        start_response("200 ok", [('ContentType', 'text/html')])
+        req.start_response("200 ok", [('ContentType', 'text/html')])
     return [data]
 
 

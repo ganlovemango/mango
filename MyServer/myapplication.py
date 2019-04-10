@@ -32,7 +32,7 @@ def app(environ,start_response):
     environ['root_path'] = rootPath
     # 路由
     for pattern,func in patterns:
-        print(re.match(pattern,path),pattern,path)
+        # print(re.match(pattern,path),pattern,path)
         if re.match(pattern,path):
             return func(environ,start_response)
 
