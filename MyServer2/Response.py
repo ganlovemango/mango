@@ -33,7 +33,7 @@ class Response:
 
 
 # render
-def render(req,file,data):
+def render(req,file,data={}):
     """
 
     :param req:  请求对象

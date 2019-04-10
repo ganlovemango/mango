@@ -68,126 +68,19 @@
     <div class="columns">
         <div class="column two-thirds">
             <ol class="repo-list">
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        以我的解理来描述 PHP 5.4 加入的 Trait 语法。
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/04/16
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        在国内服务器上使用 npm 不得不说是一个特别痛苦的事情，这时候我们可以用代理来解决。
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2016/03/01
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        在 PHP 全局异常处理器注册函数 set_exception_handler 注册一个新的 handler 之前备份前一个 handler， 并调用它来处理非自己业务的异常
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/12/09
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        同步你的项目结构，保持与官方新版一致，而不是每次一升级就下载覆盖。
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/06/09
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        PHP代码规范检查工具PHPCS、PHP代码质量检测工具PHPMD的安装与配置
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/05/18
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        在 centos 系统下编译安装 Git 的最新版本笔记
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/05/08
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        在 centos 系统下 `sudo -Hu` 执行时找不到命令的问题解决办法
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/05/08
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        Laravel 提供了很多默认事件，登录登出、数据库连接与查询、应用启动前后、缓存等等很多默认事件，本篇以用户登录事件来演示如何处理 Larvel 5 的默认事件。
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/04/17
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        在 Laravel 项目中获取当前被调用的控制器名称和方法
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/03/19
-                    </p>
-                </li>
-                
-                <li class="repo-list-item">
-                    <h3 class="repo-list-name">
-                        <a href="javascript:;"></a>
-                    </h3>
-                    <p class="repo-list-description">
-                        以Coding上私有库的部署为例来讲解如何使用Coding的hook服务结合PHP脚本来自动部署到生产环境的服务器
-                    </p>
-                    <p class="repo-list-meta">
-                        <span class="octicon octicon-calendar"></span> 2015/01/19
-                    </p>
-                </li>
+                {% for article in articles %}
+                    <li class="repo-list-item">
+                        <h3 class="repo-list-name">
+                            <a href="javascript:;"></a>
+                        </h3>
+                        <p class="repo-list-description">
+                            <a href="/detail/{{ article.aid }}">{{ article.title }}</a>
+                        </p>
+                        <p class="repo-list-meta">
+                            <span class="octicon octicon-calendar"></span> {{ article.publishtime }}
+                        </p>
+                    </li>
+                {%  endfor %}
                 
             </ol>
         </div>

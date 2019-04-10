@@ -1,3 +1,4 @@
+from datetime import datetime
 import os
 import hashlib
 from urllib.parse import parse_qs  #系统的查询参数解析方法
@@ -49,4 +50,12 @@ def load_static(req):
 
 # 首页
 def index(req):
-    return render(req,'blog.html')
+    articles = DBHelper('article').select()
+    for article in articles:
+        article['publishtime'] = datetime.strftime(article['publishtime'] ,'%Y-%m-%d')
+    print(articles)
+    return render(req,'blog.html',{'articles':articles})
+
+# 关于我们
+def about(req):
+    return render(req, 'about.html')
