@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 200px;
+            background: red;
+        }
+        #d1{
+            background: red;
+            height: 600px;
+        }
+        .c1{
+            background: #4a993e;
+            height: 600px;
+        }
+        b{
+            font-weight: normal;
+        }
+
+        .c2{
+            margin: 20px;
+            height: 200px;
+            background: blue;
+        }
+        .c3{
+            margin: 20px;
+            height: 100px;
+            background: gold;
+        }
+
+        /*
+        权重算法：
+           id 1000
+           class  100
+           标签    10
+           在层级选择中，直接将权重相加，权重大的优先级高
+
+        */
+
+        #d1  .c3{ /*1100*/
+            background: black;
+        }
+        .c1 #d2 .c3{ /*1200*/
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<!--
+优先级最高的是行内样式
+-->
+<div id="d1"  class="c1" -style="background: yellow;height: 500px">
+
+    <div class="c2" id="d2">
+
+        <div class="c3">
+
+        </div>
+    </div>
+
+
+</div>
+<b>hello</b>
+
+</body>
+</html>

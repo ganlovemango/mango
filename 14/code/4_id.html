@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类选择器</title>
+    <style>
+        /*
+         标签有全局属性：id、class、style、name
+         id名必须唯一
+        */
+
+        #d1{
+            color: green;
+        }
+        #d2{
+            height: 100px;
+            background: red;
+        }
+        /*id选择器优先级高于类选择器*/
+        .c1{
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="d2" class="c1">老师问小明：说一下星期一到星球六的英文</div>
+<p id="d1">小明：monday,sunday,ymd</p>
+<span>老师：滚</span>
+<p>有多远滚多远</p>
+</body>
+</html>

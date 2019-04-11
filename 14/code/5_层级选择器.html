@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层级选择器</title>
+    <style>
+        #d1{
+            height: 600px;
+            background:red;
+            border: 1px solid green;
+        }
+        #d11{
+            margin: 50px;
+            height: 400px;
+            border: 1px solid black;
+            background:yellow;
+        }
+
+        #d111{
+            margin: 50px;
+            border: 1px solid white;
+            height: 200px;
+            background:blue;
+        }
+
+        /*
+
+
+        */
+
+        /*#d1 #d11 div{*/
+            /*color: white;*/
+            /*font-size: 100px;*/
+        /*}*/
+
+         /*#d1 div{*/
+            /*color:blue;*/
+            /*font-size: 40px;*/
+        /*}*/
+        /*孩子选择器*/
+        #d1>div{
+            background: tomato;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div id="d11">
+            那都不去，睡觉
+            <div id="d111">
+                天不错，周末去那浪?
+            </div>
+        </div>
+    </div>
+</body>
+</html>

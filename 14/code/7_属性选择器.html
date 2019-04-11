@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*属性选择器：选中有特定属性的标签*/
+        /*input[name]{*/
+            /*height: 30px;*/
+            /*background: red;*/
+        /*}*/
+        input[name='username']{
+            width: 600px;
+            height: 60px;
+        }
+
+        /**= 包含
+        input[name*='c2']{*/
+
+            /*background: red;*/
+        /*}*/
+        /*$= 以..结尾的*/
+          input[name$='c3']{
+
+            background: red;
+        }
+        [id]{
+            height: 200px;
+            background:blue;
+        }
+
+    </style>
+</head>
+<body>
+<input type="text" name="username">
+<input type="text" name="c1 c2 c3">
+<input type="text" name="c3 c2 ">
+<input type="text" name="c1 c3">
+<div name="">djdjdjdj</div>
+<p id=""></p>
+</body>
+</html>
