@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>京东</title>
+    <style>
+        /*公共样式*/
+        *{margin: 0px;padding: 0px}
+        ul,ol{list-style: none}
+        a{text-decoration: none}
+        .clear:after{display:block;content:'';zoom:1;clear:both;}
+
+        /*导航栏部分*/
+        .nav{height: 30px;background: #e3e4e5;}
+        .nav .nav_left{height: 30px;width: 300px;float: left}
+        .nav .nav_left img{margin-left: 230px;margin-top: 5px;display: block;float: left}
+        .nav .nav_left span{display: block;float: left;line-height: 30px;font-size: 12px;color: #a1a4bc}
+
+        .nav .nav_right{height: 30px;-background: gold;width: 720px;float: right;color: #a1a4bc;}
+        .nav .nav_right ul li{float: left;margin-right: 5px;line-height: 30px;height: 30px;
+            font-size: 12px;}
+        .nav .nav_right  a:link{color:#a1a4bc}
+        .nav .nav_right  a:visited{color:#a1a4bc}
+        .nav .nav_right  a:hover{color:red}
+        .nav .nav_right ul .space{width: 1px;float: left;height: 10px;background: #cfd1cb;
+            margin-top: 10px;margin-right: 10px;margin-left: 10px;}
+        /*搜索栏*/
+        .search{height: 100px;background: #f5f5f5;position: relative}
+        .search .keyword{display: block;width: 500px;border: 1px solid red;float: left;margin-left: 356px;
+            margin-top: 25px;height: 30px;
+        }
+        .search .btn{display: block;
+            width: 50px;height: 32px;margin-top: 25px;float: left;border: none;background: url("images/search.png") no-repeat center center  #f10215;}
+        .search .camera{position: absolute;top:35px;left:825px;width: 20px;height: 18px;background: url("images/sprite-photo-search.png") no-repeat;}
+        .search .cart{position: relative; width: 188px;height: 33px;float: left;background: white;margin-top: 25px;margin-left: 30px}
+        .search .cart .show{width: 20px;height: 18px;background: url("images/toolbars.png") no-repeat;float: left;margin-left: 50px;margin-top: 6px}
+        .search .cart span{display: block;float: left;line-height: 33px;font-size: 12px;margin-left: 2px;}
+        .search .cart .tip{width: 15px;height: 15px;background: red;position: absolute;top:3px;right:38px;border-radius: 50%;font-size: 12px;line-height: 15px;color: white;text-align: center}
+        .search .hot {
+
+            width: 500px;
+            height: 20px;
+            position: absolute;
+            top:60px;
+            left: 357px;
+            font-size: 12px;
+        }
+        .search .hot li{float: left;margin-right:6px; }
+        /*菜单*/
+        .menu{height: 40px;background: #f5f5f5}
+        .menu ul{margin-left: 265px;}
+        .menu a:link{color: #545556}
+        .menu a:visited{color: #545556}
+        .menu li{float: left;margin-right: 15px;line-height: 40px}
+
+        /*logo*/
+        .logo{width: 190px;height: 170px;position: absolute;top: 0px;left: 36px;
+            background: url("images/logo.v2.png") no-repeat white;
+        }
+        .logo a{text-indent: -999em;display: block;width: 190px;height: 170px;
+            box-shadow: 1px -1px 7px grey;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <!--导航栏-->
+    <div class="nav clear">
+        <div class="nav_left">
+            <img src="images/bj.png" alt="">
+            <span>北京</span>
+        </div>
+        <div class="nav_right">
+            <ul>
+                <li><a href="">你好，请登录</a> <a href="">免费注册</a></li>
+                <li class="space"></li>
+                <li><a href="">我的订单</a></li>
+                <li class="space"></li>
+                <li><a href="">我的京东<img src="images/arrow.png" alt=""></a></li>
+                <li class="space"></li>
+                <li><a href="">京东会员</a></li>
+                <li class="space"></li>
+                <li><a href="">企业采购<img src="images/arrow.png" alt=""></a></li>
+                <li class="space"></li>
+                <li><a href="">客户服务<img src="images/arrow.png" alt=""></a></li>
+                <li class="space"></li>
+                <li><a href="">网站导航<img src="images/arrow.png" alt=""></a></li>
+                <li class="space"></li>
+                <li><a href="">手机京东</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="search">
+        <input type="text" placeholder="磁力片" class="keyword"><input type="button" class="btn">
+        <div class="camera"></div>
+        <div class="cart">
+            <div class="show"></div> <span>我的购物车</span> <div class="tip">0</div>
+        </div>
+        <div class="hot">
+            <ul>
+                <li><a href="">美酒唤醒季</a></li>
+                <li><a href="">0元抽</a></li>
+                <li><a href="">手机配件</a></li>
+                <li><a href="">黑电巅峰</a></li>
+                <li><a href="">海囤全球</a></li>
+                <li><a href="">199减100</a></li>
+                <li><a href="">DW手表</a></li>
+                <li><a href="">美酒爆款</a></li>
+                <li><a href="">时尚轻奢</a></li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="">秒杀</a></li>
+            <li><a href="">优惠券</a></li>
+            <li><a href="">PLUS会员</a></li>
+            <li><a href="">闪购</a></li>
+            <li><a href="">拍卖</a></li>
+            <li><a href="">京东时尚</a></li>
+            <li><a href="">京东超市</a></li>
+            <li><a href="">京东生鲜</a></li>
+            <li><a href="">海囤全球</a></li>
+            <li><a href="">京东金融</a></li>
+        </ul>
+        
+    </div>
+    <div class="logo">
+        <a href="http://www.jd.com">京东</a>
+    </div>
+</div>
+</body>
+</html>
