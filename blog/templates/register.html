@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>博客-首页</title>
+    <link rel="stylesheet" href="/static/css/primer.css">
+    <link rel="stylesheet" href="/static/css/user-content.min.css">
+    <link rel="stylesheet" href="/static/css/octicons.css">
+    <link rel="stylesheet" href="/static/css/collection.css">
+    <link rel="stylesheet" href="/static/css/repo-card.css">
+    <link rel="stylesheet" href="/static/css/repo-list.css">
+    <link rel="stylesheet" href="/static/css/mini-repo-list.css">
+    <link rel="stylesheet" href="/static/css/boxed-group.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/share.min.css">
+    <link rel="stylesheet" href="/static/css/responsive.css">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/prism.css">
+    <style>
+        form div{height: 34px;width: 400px;position: relative}
+        .yzm{width: 80px;height: 34px;position: absolute;top: 0px;left: 240px;}
+    </style>
+</head>
+<body class="home">
+    <header class="site-header">
+        <div class="container">
+            <h1><a href="">疯狂的程序员</a></h1>
+            <nav class="site-header-nav" role="navigation">
+                
+                <a href="/login" style="color:yellow;">登录</a>
+                
+                <a href="/register" style="color:yellow;">注册</a>
+
+                <a href="/about" style="color:yellow;">关于我们</a>
+
+                <a href="/logout" style="color:yellow;">退出登录</a>
+            </nav>
+        </div>
+    </header>
+    <!-- / header -->
+    <section class="banner">
+    <div class="collection-head">
+        <div class="container">
+            <div class="collection-title">
+                <h1 class="collection-header">Code Artisan</h1>
+                <div class="collection-info">
+                    <span class="meta-info">
+                        <span class="octicon octicon-location"></span>
+                        China Beijing
+                    </span>
+                    <span class="tooltipped tooltipped-s tooltipped-multiline meta-info" aria-label="PHP, JavaScript, HTML+CSS, C/C++">
+                        <span class="octicon octicon-code"></span>
+                        Web development
+                    </span>
+                    <span class="meta-info">
+                        <span class="octicon octicon-organization"></span>
+                        <a href="javascript:;"></a>
+                    </span>
+                    <span class="meta-info last-updated">
+                        <span class="octicon octicon-mark-github"></span>
+                        <a href="javascript:;"></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /.banner -->
+<section class="container content">
+    <div class="columns">
+        <div class="column two-thirds">
+            <ol class="repo-list">
+                {% for article in articles %}
+                    <li class="repo-list-item">
+                        <h3 class="repo-list-name">
+                            <a href="javascript:;"></a>
+                        </h3>
+                        <p class="repo-list-description">
+                            <a href="/detail/{{ article.aid }}">{{ article.title }}</a>
+                        </p>
+                        <p class="repo-list-meta">
+                            <span class="octicon octicon-calendar"></span> {{ article.publishtime }}
+                        </p>
+                    </li>
+                {%  endfor %}
+                
+            </ol>
+        </div>
+
+
+
+</section>
+
+<section class="container content">
+    <form action="/doregister">
+        用户名：<input type="text" name="username"> <br>
+        密码：<input type="text" name="passwd"> <br>
+        性别：<input type="text" name="sex"> <br>
+        <div>
+            验证码：<input type="text" name="code"><img class="yzm" src="/verifycode" alt=""><br>
+        </div>
+        <input type="submit" value="注册">
+    </form>
+</section>
+<!-- /section.content -->
+    <footer class="container">
+        <div class="site-footer" role="contentinfo">
+            <div class="copyright left mobile-block">
+                    © 2015
+                    <span title="overtrue.me">overtrue.me</span>
+                    <a href="javascript:;"></a>
+            </div>
+
+            <ul class="site-footer-links right mobile-hidden">
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+            </ul>
+            <a href="javascript:;" target="_blank" aria-label="view source code">
+                <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+            </a>
+            <ul class="site-footer-links mobile-hidden">
+                
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                
+                <li>
+                    <a href="javascript:;"></a>
+                </li>
+                
+            </ul>
+
+        </div>
+    </footer>
+    <!-- / footer -->
+
+
+
+
+</body></html>

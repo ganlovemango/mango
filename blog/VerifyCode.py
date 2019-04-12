@@ -1,3 +1,5 @@
+from io import BytesIO
+
 from  PIL import Image
 from  PIL import ImageDraw
 from  PIL import ImageFont
@@ -35,8 +37,13 @@ class VerifyCode:
         #5.画干扰线
         self.__draw_line()
 
-        #6.保存图片
-        self.im.save("yzm.png")
+        #6.返回图片的二进制
+        # self.im.save("yzm.png")
+        buf = BytesIO()
+        self.im.save(buf,'png')  # 把图片的保存到缓存区
+        data = buf.getvalue()  # 图片的二进制数据
+        buf.close()  # 关闭缓冲区
+        return data
 
     def __draw_string(self):
         width = (self.width - 10)/self.size  #字符宽度

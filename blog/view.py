@@ -7,6 +7,7 @@ import jinja2
 
 from DBHelper import DBHelper
 from Response import *
+from VerifyCode import  VerifyCode
 
 
 
@@ -59,3 +60,31 @@ def index(req):
 # 关于我们
 def about(req):
     return render(req, 'about.html')
+
+# 注册
+def register(req):
+    return render(req,'register.html')
+
+# 验证码
+def yzm(req):
+    vc = VerifyCode()
+
+
+    data = vc.generate()
+    print(vc.code)
+    response = Response(req)
+    response.set_cookie('yzm', vc.code)
+    req.start_response(response.status, response.header)
+    return [data]
+
+# 注册处理
+def do_register(req):
+    code = req.GET.get('code')
+    yzm = req.cookie.get('yzm')
+    print(code,yzm)
+    if code == yzm:
+        print("ok")
+    else:
+        print("failure")
+    req.start_response("200 ok", [("ContentType", 'text/html')])
+    return [b'register']
