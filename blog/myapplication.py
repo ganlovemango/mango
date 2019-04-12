@@ -3,7 +3,7 @@ import os
 from urls import *
 from Request import Request
 # 网站入口
-def app(environ,start_response):
+def application(environ,start_response):
     path = environ.get('PATH_INFO','/')
     print(path)
 
