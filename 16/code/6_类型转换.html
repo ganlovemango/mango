@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+
+    // 其他类型转字符串
+    // res = '' + 34
+    // res = '' + (2>1)
+    // res = '' + (2>3)
+    // res = '' + 3.4
+    // console.log(typeof res,res)
+
+    // 布尔类型和数值的toString
+    // a = true
+    // console.log(typeof a.toString())
+    // a = 100
+    // console.log(a.toString(3))
+
+    console.log(String(3.4))
+    console.log(String([1,3,4,5]),typeof String([1,2]))
+
+</script>
+
+<script>
+    //其他类型转数值类型
+    //parseInt
+    // console.log(parseInt(4.5))  // 浮点数直接抹去小数点
+    // console.log(parseInt('10'),typeof  parseInt('10'))
+    // console.log(parseInt('-10'),typeof  parseInt('10'))
+    // console.log(parseInt('10d'),typeof  parseInt('10')) //以数字开头的只转数字部分
+    // console.log(parseInt('10d90'),typeof  parseInt('10')) //以数字开头的只转数字部分
+    // console.log(parseInt('a10'),typeof  parseInt('10')) //NaN
+
+    //parseFloat
+    // console.log(parseFloat(10))
+    // console.log(parseFloat('10.3dd'))
+    // console.log(parseFloat('e10.3dd')) //NaN
+
+    //Number
+    console.log(Number('10'))
+    console.log(Number('10.5'))
+    console.log(Number('10.5d')) //字符串中不能包含除去+ - . 0-9之外的字符
+
+</script>
+
+<script>
+
+    console.log(Math.random())
+    //5-10随机整数
+    //[a b]   parseInt(a + (b-a+1).Math.random())
+    console.log(parseInt(5 + (10-5+1)*Math.random()))
+</script>

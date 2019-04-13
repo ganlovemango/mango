@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>运算符</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 算数运算符
+    // console.log(3 + 5)
+    // console.log(3 - 5)
+    // console.log(3 * 5)
+    // console.log(3 / 5)
+    // console.log(3 % 5)
+
+</script>
+<script>
+    a = 2
+    // 自增运算  使自身的值加1
+
+    // b = a++  //后置自增 ++在数的后面; 先拿a参与运算，运算完成后，a再自己增1
+    // console.log(b,a)
+    // a = 3
+    // console.log(a++)  //3 a的之会变成4
+    // console.log(a)
+
+    // ++a  前置自增 先把a的值加1,再参与运算
+    // a = 1
+    // b = ++a
+    // console.log(a,b)
+</script>
+
+<script>
+    // = 赋值运算
+    // 赋值表达式是有值
+    a = 20
+    console.log(a=30)
+    // if (a = 30) {
+    //     console.log("error")
+    // }
+    // if (30 = a) {  //可以预防把判等写成赋值
+    //     console.log("error")
+    // }
+    // a = b = 30
+    // console.log(a,b)
+    // a = 3, b = 5
+    // console.log(a,b)
+
+    // += -+ *= /= %=
+    // a = 3
+    // b = 5
+    // b *= a + 3  // b = b * (a + 3)
+    // console.log(a,b)
+
+</script>
+
+<script>
+    //关系运算符
+    // a = 10
+    // b = '10'
+    // console.log(a == b)  // 判值是否相等，相等就是true，否则就是false
+    //
+    // //判恒等 : 值和类型都相等，则是true，否则false
+    // console.log(a === b)
+    //
+    // // 非恒等 只要值或类型有一处不相等则为true，否则为假
+    // console.log(a !== b)
+
+</script>
+
+<script>
+    //逻辑运算符
+    // console.log(2 && 3.5)  //and
+    // console.log(0.0 && 3.5)  //and
+    // a = 3
+    // b = 4
+    // res = a > 4 && (b = 5)  //对于逻辑与来说如果第一个操作数为假，则不计算第二个操作数的值
+    // console.log(a,b,res)
+
+    //逻辑或
+    // b  =3
+    // console.log(3 || (b = 10))
+    // console.log(b)
+    // console.log('' || 3.5)
+    //
+    // // ! 逻辑非 true和false
+    // // console.log(!2,!0)
+    //
+    // // ! > && > ||
+    // console.log( !(0 && 3 || 10))
+</script>
+
+<script>
+    a = 3
+    b = 7
+    // 表达式1？表达式2:表达式3
+
+    // console.log(a > 2 ? b+2:a+10)
+    // if (a>2){
+    //     res = b+2
+    // } else {
+    //     res = a+10
+    // }
+
+</script>
+
+<script>
+    a = 2
+    // 从左向右运算，结果是最右边表达式的之
+    //逗号运算符优先级最低
+    a = (a,3,a=4,5)
+    console.log(a)
+
+</script>
