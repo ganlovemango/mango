@@ -106,7 +106,7 @@
 </section>
 
 <section class="container content">
-    <form action="">
+    <form action="/login" method="post">
         手机号：<input type="text" name="phone" id="phone"> <br>
         <div>
             短信验证：<input type="text" name="code">
@@ -164,7 +164,15 @@
     </footer>
     <!-- / footer -->
 
-
+    <script>
+        oPhone = document.getElementById('phone')
+        oBtn = document.getElementById('sms')
+        oBtn.onclick = function () {
+            // console.log(oPhone.value)
+            // /sms/15116905290
+            window.location.href = '/sms/' + oPhone.value
+        }
+    </script>
 
 
 </body></html>

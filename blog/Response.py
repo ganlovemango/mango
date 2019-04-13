@@ -28,7 +28,7 @@ class Response:
         cs = key + "=" +str(value) + ";"
         if expired:  #如果设置了过期时间
             cs += "Max-Age=" + str(expired)
-
+        cs += ";path=/"
         self.header.append(('Set-Cookie',cs))
 
 

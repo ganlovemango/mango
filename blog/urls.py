@@ -7,5 +7,6 @@ patterns = [(r'^/$', view.index),
             (r'/verifycode',view.yzm),
             (r'/doregister',view.do_register),
             (r'^/login$', view.login),
+            (r'^/sms/(\d+)$',view.send),
 
            ]

@@ -92,5 +92,77 @@ def do_register(req):
 
 # 登录
 def login(req):
-    return render(req,'login.html')
+    if req.method == 'GET':
+        return render(req,'login.html')
+    else:  #post
+        phone = req.POST.get('phone')
+        code = req.POST.get('code')
+        print(phone,code)
 
+        # 从cookie中获取原始的验证码
+        # oldCode = req.cookie.get('code')
+        # with open('yzm') as fp:
+        #     oldcode = fp.read()
+        #     print("oldcode",oldcode)
+
+        oldcode = req.cookie.get('code')
+
+        # 数据库查询手机号
+        db = DBHelper('user')
+        res = db.where(phone=phone).select()
+        print(res)
+        if res and oldcode == code:
+            req.start_response("200 ok", [("ContentType", 'text/html')])
+            html = """
+            <html>
+    <head>
+       <meta charset='utf-8'>
+       <meta http-equiv='refresh' content='0;url=/login'>
+    </head>
+    <body>你已通过验证，可以享受贵宾服务</body>
+    </html>
+            """
+            return [html.encode('utf8')]
+        else:
+            html = """
+                        <html>
+                <head>
+                   <meta charset='utf-8'>
+                   <meta http-equiv='refresh' content='0;url=/login'>
+                </head>
+                <body>你非法用户，请重新登录</body>
+                </html>
+                        """
+            req.start_response("200 ok", [("ContentType", 'text/html')])
+            return [html.encode('utf8')]
+
+# 发送短信
+def send(req,phone):
+    from SMS import SMS
+    sms = SMS("成少雷", "SMS_102315005")
+
+    # 验证码
+    num = random.randint(10000, 99999)
+
+
+    para = "{'number':'%d'}" % num
+    # 阿里云服务器会修改cookie路径，需要重新吧cookie的path设置/
+    res = sms.send(phone, para)
+
+    # 将验证码写入文件
+    response = Response(req)
+    response.set_cookie('phone', phone)
+    response.set_cookie('code', num)
+
+    req.start_response("200 ok", response.header)
+    #
+    html = b"""
+    <html>
+    <head>
+       <meta charset='utf-8'>
+       <meta http-equiv='refresh' content='0;url=/login'>
+    </head>
+    <body></body>
+    </html>
+    """
+    return [html]

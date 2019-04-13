@@ -24,7 +24,7 @@ class Request:
             self.cookie = [value.split('=')  for value in self.cookie]
             self.cookie = {key.strip():value for key,value in self.cookie}
         else:
-            self.cookie = ''
+            self.cookie = {}
 
 
 

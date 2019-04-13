@@ -1,7 +1,7 @@
 
 # SDK 使用说明
 
---------- 
+---------
 
 ## 概述
 * 该python SDK包含MNS、SMS功能，同时兼容python2.6+、python3.0+
@@ -39,3 +39,8 @@
 * 安装依赖2：进入目录mns_python_sdk，执行：python setup.py install
 * 最顶层目录执行demo执行：python demo_sms_api.py
 
+### 在ubuntu下安装
+
+- 启动虚拟开发环境
+- 将目录切换到dysms_python下
+- 在dysms_python下执行：python setup.py install

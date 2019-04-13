@@ -17,7 +17,7 @@ class Response:
         self.req.start_response(self.status,self.header)
         return [html.encode('utf8')]
     # cookie
-    def set_cookie(self,key,value,expired=24*3600*3):
+    def set_cookie(self,key,value,expired=24*3600*3,path='/'):
         """
         username=tom;Max-Age=3
         :param key: 键
@@ -28,6 +28,7 @@ class Response:
         cs = key + "=" +str(value) + ";"
         if expired:  #如果设置了过期时间
             cs += "Max-Age=" + str(expired)
+        cs += "path="+path
 
         self.header.append(('Set-Cookie',cs))
 
