@@ -1,3 +1,4 @@
+import random
 from datetime import datetime
 import os
 import hashlib
@@ -88,3 +89,8 @@ def do_register(req):
         print("failure")
     req.start_response("200 ok", [("ContentType", 'text/html')])
     return [b'register']
+
+# 登录
+def login(req):
+    return render(req,'login.html')
+

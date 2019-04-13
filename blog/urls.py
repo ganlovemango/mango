@@ -6,5 +6,6 @@ patterns = [(r'^/$', view.index),
             (r'^/register$',view.register),
             (r'/verifycode',view.yzm),
             (r'/doregister',view.do_register),
-            # (r'^/login$', view.login),
+            (r'^/login$', view.login),
+
            ]
