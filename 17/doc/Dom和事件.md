@@ -85,7 +85,9 @@ oDiv.style.backgroundColor = 'red';
 | font-size        | fontSize        |
 | ....             | ......          |
 
-##3.查找元素
+## 3.查找元素
+
+   如果标签有层级关系，可以使用下面的获取      
 
 - parentNode  获得当前元素的父元素
 - children 获得当前元素的所有子元素
@@ -99,7 +101,7 @@ oDiv.style.backgroundColor = 'red';
   - firstChild
   - lastChild
 
-##4.增加删除元素
+## 4.增加删除元素
 
 - 增加节点应遵循以下步骤：
 
@@ -134,7 +136,7 @@ oDiv.style.backgroundColor = 'red';
     父节点.innerHTML = '';//全部删除
     ```
 
-##5.属性（property)和特性(attribute)
+## 5.属性（property)和特性(attribute)
 
 - 在标签里添加的自定义属性称之为**特性**，不能通过标签.属性名获取或设置
 
@@ -166,7 +168,7 @@ oDiv.style.backgroundColor = 'red';
 | onfocus       | 元素获得焦点                                     |
 | onblur        | 元素失去焦点                                     |
 
-##7.定时器
+## 7.定时器
 
 - 一次性定时器
   - 设置定时器：timer = setTimeout(函数,毫秒);

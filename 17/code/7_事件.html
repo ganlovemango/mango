@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{height: 300px;width: 200px;background: red}
+    </style>
+    <script>
+        //如果在标签产生之前获取，会得到空null
+        // oDiv = document.getElementById('d1')
+        // console.log(oDiv)
+        //触发时机： 当前文档中所有的标签及外联的资源都加载完毕后，会自动触发onload事件
+        window.onload = function () {
+             oDiv = document.getElementById('d1')
+             console.log(oDiv)
+        }
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+<input type="text" id="username" value="李四">
+</body>
+</html>
+<script>
+    oDiv = document.getElementById('d1')
+    //鼠标在div按下去时触发
+    oDiv.onmousedown = function () {
+        this.style.background = 'yellow'
+    }
+
+    //在div松开鼠标时触发
+    oDiv.onmouseup = function () {
+        this.style.background = 'blue'
+    }
+
+    //鼠标移动到div上时触发
+    oDiv.onmouseover = function () {
+        this.style.height = '400px'
+    }
+
+    //移出div时触发
+     oDiv.onmouseout = function () {
+        this.style.height = '300px'
+    }
+
+    oInput = document.getElementById('username')
+    //input得到焦点
+    oInput.onfocus = function () {
+        this.value = ''
+        this.style.background = 'red'
+    }
+</script>

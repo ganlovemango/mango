@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    console.log(b)
+    console.log("hello")
+    //在所有函数外面定义变量叫全局变量
+    a = 10
+    var  b = 9  //作用域大于a的作用域
+
+    function demo1() {
+        b += 10
+        console.log(a)
+        //在函数内部用var定义变量叫局部变量,作用域是整个函数体
+        //局部变量和全局变量重名，局部优先
+        var a = 100000
+        console.log(a)
+
+        //全局变量
+        c = 99
+    }
+    demo1()
+    console.log(a)
+    console.log("c=",c)
+    console.log("b=",b)
+</script>

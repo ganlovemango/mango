@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .txt{
+            background: blue;
+        }
+        .green{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">
+    <h2>醒醒吧，兄弟</h2>
+</div>
+<button>点点</button>
+
+<input type="text" name="username" class="txt">
+</body>
+</html>
+<script>
+    oDiv = document.getElementById('d1')
+
+    // 修改样式
+    oDiv.style.height = "300px"
+    oDiv.style.width = '500px'
+    oDiv.style.backgroundColor = 'red'
+    oDiv.style.border = "5px solid yellow"
+    oDiv.style.fontSize = '3em'
+
+    // 修改标签中间文本
+    // oDiv.innerText = "<b>站着不如倒着</b>"
+
+    //修改标签中间的html
+    oDiv.innerHTML = "<b>站着不如倒着</b>"
+
+    oBtn = document.getElementsByTagName('button')[0]
+    oInput = document.getElementsByName('username')[0]
+    oBtn.onclick = function () {
+        // console.log(1111)
+        // oDiv.innerHTML = "<button>点点</button>"
+        //获取表单标签的值
+        // console.log(oInput.value)
+        // oInput.value = "hello"
+
+        //显示和消失
+        // oDiv.style.display = 'none'
+        // console.log(typeof oDiv.style.display,oDiv.style.display)
+        // // display显示时的值是''
+        // if (oDiv.style.display == ''){
+        //     oDiv.style.display = 'none'
+        // } else {
+        //     oDiv.style.display = ''
+        // }
+
+        //修改类名（className)
+        if (oInput.className == 'txt'){
+            oInput.className = 'green'
+        } else {
+            oInput.className = 'txt'
+        }
+    }
+
+</script>

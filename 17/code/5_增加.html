@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加节点</title>
+</head>
+<body>
+<select name="" id="province">
+    <option value=""></option>
+</select>
+<select name="" id="city">
+    <option value=""></option>
+</select>
+<br>
+<input type="button" id="btn" value="增加">
+</body>
+</html>
+<script>
+    oBtn = document.getElementById('btn')
+    var oSelect = document.getElementById('province')
+    var oSelect1 = document.getElementById('city')
+    oBtn.onclick = function () {
+        names = ['北京','河南','河北','山西','陕西','甘肃','湖北']
+        //添加节点
+        option = document.createElement('option')
+
+        //修改样式和属性
+        index = parseInt(Math.random()*names.length)
+        option.innerText = names[index]
+        option.value =index
+        option.style.background = 'red'
+
+         //添加到父节点下
+        oSelect.appendChild(option)
+
+    }
+
+    oSelect.onchange = function () {
+        oSelect1.innerText = ''
+        //添加节点
+        option = document.createElement('option')
+        option.innerText = '海淀区'
+        oSelect1.appendChild(option)
+    }
+
+     //添加节点
+    oP = document.createElement('p')
+    oP.innerText = '牛牛哦'
+    oBody = document.getElementsByTagName('body')[0]
+    oBody.insertBefore(oP,oBtn)
+
+    //删除body中所有节点
+    // oBody.innerText = ''
+    // oBody.innerHTML = ''
+
+    //删除指定节点
+    oBody.removeChild(oSelect1)
+</script>

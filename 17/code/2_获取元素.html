@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{height: 100px;background: red;margin-top: 5px;}
+    </style>
+</head>
+<body>
+<div id='outter'>
+    <div id="id1"></div>
+    <div class="c1"></div>
+    <div name="dd"></div>
+</div >
+
+</body>
+</html>
+<script>
+    //1 byId
+    oDiv1 = document.getElementById('id1')
+    oDiv1.style.background = 'blue'
+    console.log(oDiv1)
+
+    //2 byTageName
+    //不必通过document获取
+    //返回的是一个HTMLCollect是一个伪数组,不能调用数组的函数
+    // aDiv = document.getElementsByTagName('div')
+    // console.log(typeof  aDiv,aDiv)
+    oOutter = document.getElementById('outter')
+    // aDiv = oOutter.getElementsByTagName('div')
+    // console.log(aDiv)
+
+    //3 ByClassName
+    //返回的是伪数组
+    // oC1 = oOutter.getElementsByClassName('c1')
+    // console.log(oC1)
+    // oC1[0].style.background = 'yellow'
+
+    //4 ByName
+    oDiv2 = document.getElementsByName('dd')[0]
+    oDiv2.style.background = 'pink'
+    oDiv2.style.height = '200px'
+
+</script>

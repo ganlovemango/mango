@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        #content div{display: none}
+        .active{background: yellow}
+        #content .visible{display: block}
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <button class="active">军事新闻</button>
+    <button>娱乐八卦</button>
+    <button>体育视频</button>
+</div>
+<div id="content">
+    <div class="visible" style="height: 200px;width: 400px;background: red"></div>
+    <div style="height: 200px;width: 400px;background: blue"></div>
+    <div style="height: 200px;width: 400px;background: purple"></div>
+</div>
+</body>
+</html>
+<script>
+    aBtn = document.getElementsByTagName('button')
+    oContent = document.getElementById('content')
+    aDiv = oContent.getElementsByTagName('div')
+    // for(i = 0; i<aBtn.length;i++){
+    //     //自定义一个动态属性
+    //     aBtn[i].index = i
+    //
+    //     // 事件是异步的
+    //     aBtn[i].onmouseover = function () {
+    //         // console.log(i)
+    //
+    //         for(j=0;j<aBtn.length;j++){
+    //             //去掉所有按钮的类名
+    //             aBtn[j].className = ''
+    //             aDiv[j].className = ''
+    //         }
+    //         //给当前按钮添加类名
+    //         this.className = 'active'
+    //         console.log(this.index)
+    //         //gie按钮对象div添加类名
+    //         aDiv[this.index].className = 'visible'
+    //     }
+    // }
+
+    //2
+    //将伪数组转换为js的数组
+    tmp =  Array.prototype.slice.call(aBtn)
+    console.log(typeof tmp,tmp)
+    for(i = 0; i<aBtn.length;i++){
+        // 事件是异步的
+        aBtn[i].onmouseover = function () {
+            // console.log(i)
+
+            for(j=0;j<aBtn.length;j++){
+                //去掉所有按钮的类名
+                aBtn[j].className = ''
+                aDiv[j].className = ''
+            }
+            //给当前按钮添加类名
+            this.className = 'active'
+
+            //gie按钮对象div添加类名
+            aDiv[tmp.indexOf(this)].className = 'visible'
+        }
+    }
+</script>

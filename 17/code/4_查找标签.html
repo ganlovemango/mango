@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="d1">
+    <input type="text" name="username"><span></span> <br>
+    <input type="password" name="pwd"><span></span>
+</div>
+</body>
+</html>
+<script>
+    //第一个孩子
+    oDiv = document.getElementById('d1')
+    // console.log(oDiv.firstElementChild)
+    // oDiv.firstElementChild.value = "张三"
+    //
+    // //下一个兄弟
+    // console.log(oDiv.firstElementChild.nextElementSibling.nextElementSibling)
+    // //父标签
+    //  console.log(oDiv.firstElementChild.nextElementSibling.parentNode)
+    //
+    // //所有的孩子
+    // console.log(oDiv.children)
+    // for(i=0;i<oDiv.children.length;i++){
+    //     console.log(oDiv.children[i])
+    // }
+
+    // oDiv.firstElementChild.onblur = function () {
+    //     value = this.value
+    //     if (value.length < 3){
+    //         this.nextElementSibling.innerHTML = "用户不能少于3位"
+    //     }
+    // }
+
+    //兼容两种浏览器
+    oFirstInput = oDiv.firstElementChild || oDiv.firstChild
+    oFirstInput.style.backgroundColor = 'red'
+</script>

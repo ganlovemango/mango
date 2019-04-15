@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 1参数值传递
+    a = 10
+    function demo1(x) {
+        x = 100
+        console.log(x)
+    }
+    demo1(a)
+    console.log(a)
+    //2 引用传递
+    //数组、对象
+    a = [1,2,3];
+    function demo2(x) {
+        x[0] = 100
+    }
+    demo2(a)
+    console.log(a)
+</script>

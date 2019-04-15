@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="d1" index="10" class="c1"></div>
+</body>
+</html>
+<script>
+    oDiv = document.getElementById('d1')
+    //获取自定义属性的值,getAttribute
+    console.log(oDiv.index,oDiv.getAttribute('index'))
+    console.log(oDiv.id)
+    oDiv.className ='c2'
+    //修改自定义属性的值
+    oDiv.setAttribute('index','200')
+
+
+    //动态增加的属性
+    oDiv.ok = 'hello'
+    console.log(oDiv.ok)
+    oDiv.ok = 'world'
+    console.log(oDiv.ok)
+</script>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //js有根类 Object
+    //1 创建对象
+    // obj1 = new Object()
+    //
+    // obj1.name = '四不想'
+    // obj1.age = 20
+    // obj1.walk = function(){
+    //     console.log("走走走")
+    // }
+    // obj1.walk()
+    // console.log(typeof  obj1,obj1)
+
+    //2 简单工厂模式
+    // function createDog(name,age) {
+    //     dog = new Object()
+    //     dog.name = name
+    //     dog.age = age
+    //     dog.bark = function () {
+    //         console.log("狼性千里吃肉，狗性千里吃屎")
+    //     }
+    //     return dog
+    // }
+    //
+    // d1 = createDog('泰迪',4)
+    // d1.bark()
+
+    //3 构造函数创建
+    // function Person(name,age,sex) {
+    //     p = new Object()
+    //     p.name = name
+    //     p.age = age
+    //     p.sex = sex
+    //     p.eat = function () {
+    //         console.log("吃饭饭")
+    //     }
+    //     return p
+    // }
+    // person = new Person('tom',20,'男')
+    // person.eat()
+    // console.log(person.name,person.age)
+
+    //4 原型模式
+    // function Person(name,age) {
+    //     //this代表当前对象
+    //    this.name = name
+    //     this.age = age
+    // }
+    // Person.prototype.eat = function () {
+    //     console.log("吃")
+    // }
+    // tom = new Person('tom',21)
+    // tom.eat()
+
+    //5 json
+    person = {
+        name:'tom',
+        age:21,
+        speak:function () {
+            console.log("能说会道")
+        }
+    }
+    person.speak()
+</script>
