@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <input type="checkbox" id="all"> 全选
+    <input type="checkbox" id="reverse"> 反选
+
+</div>
+<hr>
+<div id="content">
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+</div>
+</body>
+</html>
+<script>
+    //全选
+    oAll = document.getElementById('all')
+    //反选
+    oReverse = document.getElementById('reverse')
+
+    //content
+    oContent = document.getElementById('content')
+    aCheckbox = oContent.getElementsByTagName('input')
+    console.log(oAll,oReverse,aCheckbox)
+
+    //全选
+    oAll.onclick = function () {
+        for(i=0;i<aCheckbox.length;i++){
+            aCheckbox[i].checked = true
+        }
+    }
+
+    // oReverse.onclick = function () {
+    //     for(i=0;i<aCheckbox.length;i++){
+    //         if (aCheckbox[i].checked ){
+    //             aCheckbox[i].checked = false
+    //         } else {
+    //             aCheckbox[i].checked = true
+    //         }
+    //     }
+    // }
+     oReverse.onclick = function () {
+        for(i=0;i<aCheckbox.length;i++){
+            aCheckbox[i].checked = !aCheckbox[i].checked
+        }
+    }
+
+    //联动全选
+    for (i = 0;i<aCheckbox.length;i++){
+        //给每一个checkbox添加click事件处理
+        aCheckbox[i].onclick = function () {
+            // alert('ok')
+            sum = 0
+            for (j= 0;j<aCheckbox.length;j++){
+                sum += aCheckbox[j].checked
+            }
+            //如果全部选中，则将oAll选中
+            if (sum == aCheckbox.length){
+                oAll.checked = true;
+            } else {
+                oAll.checked = false
+            }
+        }
+    }
+</script>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1数组
+    a = [1,2,3,4,5]
+    // b = Array()  //空数组
+    // c = []    //空数组
+    // d = Array(3)  //有3个元素的数组
+    // e = Array(1,2,3,4,5)  //数组有5个元素
+    // console.log(e)
+    // console.log(a,typeof a)
+    //2 数组元素的访问
+    //下标从左向右是0,1,2,length-1
+    console.log(a[0],a[1])
+    a[0] = 9
+    console.log(a)
+    //数组长度
+    console.log(a.length)
+
+    //关于越界 不会犯语法错误，但元素是undefined
+    console.log(a[10])
+
+    //会增加a[5]~a[9]空元素
+    a[10] = 10  //(11) [9, 2, 3, 4, 5, empty × 5, 10]
+    console.log(a)
+
+    //没有 * 、in  、 + 运算符
+
+    //遍历
+    console.log("遍历")
+    // for (i = 0;i<a.length;i++){
+    //     console.log(a[i])
+    // }
+    //for-in  不建议使用for-in遍历
+    // a.b = 'ok'
+    // for(index in a){
+    //     //index是下标，
+    //     //不输出空元素
+    //     console.log(index,a[index])
+    // }
+
+    //多维数组
+    // b = [
+    //     [1,2,3],
+    //     [3,4],
+    //     ['ok',true,3.5]
+    // ]
+    // for (i=0;i<b.length;i++){
+    //     for (j=0;j<b[i].length;j++){
+    //         console.log(b[i][j])
+    //     }
+    // }
+</script>

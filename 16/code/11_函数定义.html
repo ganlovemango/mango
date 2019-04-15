@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1函数定义
+    // function add(参数列表) {
+    //    //参数没有默认值
+    // }
+
+    //匿名函数
+    // pf = function () {
+    //     console.log('匿名函数')
+    // }
+    // pf()
+
+    // function  test1() {
+    //     console.log('test1')
+    // }
+    //
+    // //后面定义同名函数覆盖前面定义的函数
+    // function  test1() {
+    //     console.log('test2')
+    // }
+    // test1()
+
+    //函数可以在定义之前调用
+    demo(10)
+
+    //2 函数调用
+    function demo(a) {
+        // console.log(a)
+        // console.log(arguments)
+        //arguments伪数组，
+        for (i=0;i<arguments.length;i++) {
+            console.log(arguments[i])
+        }
+    }
+    // demo()  //a==undefined
+    // demo(1)
+    // demo(1,2)
+
+    //回调函数
+    // op必须传递一个函数过来,op就是回调函数
+    function operate(a,b,op) {
+        console.log(op(a,b))
+
+    }
+
+    // function  add(a,b) {
+    //     return a + b
+    //
+    // }
+    // operate(2,3,add)
+
+    // operate(3,4,function (a,b) {
+    //     console.log("匿名函数做形参数")
+    //     return a + b
+    // })
+
+    //3 封闭空间
+    //定义即调用
+    (
+        function (a,b) {
+            console.log(a+b)
+        }
+    )(3,14)
+</script>

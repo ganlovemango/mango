@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异常捕获和处理</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    try{
+        // console.log(5 / 'ok')
+        throw "error"
+    } catch (e) {
+        console.log(e,e.message)
+    } finally {
+        console.log("最终一定执行")
+    }
+
+</script>
