@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height: 500px;
+            background: red;
+            position: relative;
+        }
+        div span{
+            display: block;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 60px;
+            position: absolute;
+            top: 0;
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">
+    <span>5</span>
+</div>
+</body>
+</html>
+<script>
+    oDiv = document.getElementById('d1')
+    //一次性定时器
+    // var timer = setTimeout(function () {
+    //     oDiv.style.display = 'none'
+    //     clearTimeout(timer)  //清除定时器
+    //     timer = null  // timer置空
+    // },2000)
+
+
+    oSpan = oDiv.getElementsByTagName('span')[0]
+
+
+    //周期性定时器
+    var timer = setInterval(function () {
+        var iValue = parseInt(oSpan.innerText)
+        iValue-- //秒数减去1
+        if (iValue <= 0) {
+            clearInterval(timer)
+            timer = null
+            oDiv.style.display = 'none'  //隐藏div
+        } else {
+            oSpan.innerText = '' + iValue
+        }
+
+    },1000)
+</script>

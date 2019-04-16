@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="d1" class="d1">
+    <button>ok</button>
+</div>
+</body>
+</html>
+<script>
+
+    oDiv = document.getElementById('d1')
+    oBtn = oDiv.getElementsByTagName('button')[0]
+    console.log(oBtn)
+
+    oBtn.onclick = function () {
+        // oDiv.style.backgroundColor = 'red'
+        // oDiv.style.height = '200px'
+        //
+        // // oDiv.innerText = "hello"
+        // console.log(oDiv.id)
+        //
+        // //className
+        // oDiv.className = 'd2'
+        oP = document.createElement('p')
+        oP.innerText = "一脸蒙蔽"
+        oP.background = 'red'
+
+        oDiv.appendChild(oP)
+
+        oDiv.ok = 1
+
+    }
+
+
+
+
+
+
+    function demo(a,b) {
+        console.log('demo')
+        console.log(a,b)
+        // console.log(arguments)
+        console.log(arguments[2])
+        // arguments.indexOf(3)
+        return [1,2,3]
+    }
+    // demo()
+    // demo(1)
+    // demo(1,2)
+    // res = demo(1,2,3)
+    // console.log(res)
+    // a = 10
+    // function f(a) {
+    //     a = 100
+    // }
+    // f(a)
+    // console.log(a)
+    // a = [1,2]
+    // function insertData(a) {
+    //     a.push(100)
+    // }
+    // insertData(a)
+    // console.log(a)
+
+    //
+    // res = (function (a,b) {
+    //     return a + b
+    // })(3,5)
+    // console.log(res)
+
+    // var a = 10
+    // //作用域
+    // function test1() {
+    //     console.log(a)
+    //     var b = 90  //局部变量
+    //     var a = 98
+    // }
+    // test1()
+
+
+</script>

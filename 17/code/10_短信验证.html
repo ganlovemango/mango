@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+输入短信验证码：<input type="text" name="code"> <button>发送验证码</button>
+</body>
+</html>
+<script>
+    oBtn = document.getElementsByTagName('button')[0]
+    var num = 30
+    oBtn.onclick = function () {
+        console.log(this)
+        _this = this
+         _this.disabled = true  //按钮不可用
+        var timer = window.setInterval(function () {
+            _this.innerText = '' + num +'后发送'
+            num--
+            if (num <=0){
+                clearInterval(timer)
+                timer = null
+                _this.disabled = false
+                _this.innerText = '发送验证'
+            }
+
+        },1000)
+    }
+</script>

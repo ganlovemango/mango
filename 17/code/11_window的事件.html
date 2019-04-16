@@ -1,0 +1,30 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>窗口事件</title>
+    <style>
+        body{
+            height: 2000px;
+            width: 3000px;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //窗口大小发生变化的时候触发
+    window.onresize = function () {
+        // console.log('inner',window.innerWidth,this.innerHeight)
+        // console.log('client',document.documentElement.clientWidth,document.documentElement.clientHeight)
+    }
+
+    //窗口发生滚动时触发
+    window.onscroll = function () {
+        console.log(document.body.scrollTop || document.documentElement.scrollTop)
+        console.log(document.body.scrollLeft || document.documentElement.scrollLeft)
+
+    }
+</script>

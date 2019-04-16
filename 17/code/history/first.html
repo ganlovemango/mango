@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="second.html">second</a>
+<a href="">后退</a> <br>
+<a href="">前进</a>
+</body>
+</html>
+<script>
+    aA = document.getElementsByTagName('a')
+    aA[1].onclick = function (e) {
+        var ev = e||event
+        ev.preventDefault()  //阻止a标签的默认行为
+
+        console.log('back')
+        history.back()
+    }
+    aA[2].onclick = function (e) {
+        console.log('forward')
+        var ev = e||event
+        ev.preventDefault()
+        history.forward()
+    }
+</script>

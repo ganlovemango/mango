@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>弹跳的小球</title>
+    <style>
+        div{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+</body>
+</html>
+<script>
+    oBall = document.getElementsByTagName('div')[0]
+
+    var width = document.documentElement.clientWidth
+    var height = document.documentElement.clientHeight
+    console.log(height)
+    xspeed = 10
+    yspeed = 20
+    x = oBall.offsetLeft
+    y = oBall.offsetTop
+    var timer = setInterval(function () {
+
+        // y方向是否到达边界
+        if (oBall.offsetTop + oBall.offsetHeight >= height || y < 0) {
+            yspeed *= -1
+        }
+
+        //x方向是否达到边界
+        if (oBall.offsetWidth + x >= width || x < 0) {
+            xspeed *= -1
+        }
+
+        x = oBall.offsetLeft + xspeed
+        y = oBall.offsetTop  + yspeed
+        // console.log(x,y)
+
+        oBall.style.left = '' + x + 'px'
+        oBall.style.top = '' + y + 'px'
+
+        console.log(oBall.style.top )
+    },30)
+</script>

@@ -50,23 +50,46 @@
 
     //2
     //将伪数组转换为js的数组
-    tmp =  Array.prototype.slice.call(aBtn)
-    console.log(typeof tmp,tmp)
+    // tmp =  Array.prototype.slice.call(aBtn)
+    // console.log(typeof tmp,tmp)
+    // for(i = 0; i<aBtn.length;i++){
+    //     // 事件是异步的
+    //     aBtn[i].onmouseover = function () {
+    //         // console.log(i)
+    //
+    //         for(j=0;j<aBtn.length;j++){
+    //             //去掉所有按钮的类名
+    //             aBtn[j].className = ''
+    //             aDiv[j].className = ''
+    //         }
+    //         //给当前按钮添加类名
+    //         this.className = 'active'
+    //
+    //         //gie按钮对象div添加类名
+    //         aDiv[tmp.indexOf(this)].className = 'visible'
+    //     }
+    // }
+
+    //3
+
     for(i = 0; i<aBtn.length;i++){
-        // 事件是异步的
-        aBtn[i].onmouseover = function () {
-            // console.log(i)
+        (
+            function (i) {
+                // 事件是异步的
+                aBtn[i].onmouseover = function () {
+                    for(j=0;j<aBtn.length;j++){
+                        //去掉所有按钮的类名
+                        aBtn[j].className = ''
+                        aDiv[j].className = ''
+                    }
+                    //给当前按钮添加类名
+                    this.className = 'active'
 
-            for(j=0;j<aBtn.length;j++){
-                //去掉所有按钮的类名
-                aBtn[j].className = ''
-                aDiv[j].className = ''
+                    //gie按钮对象div添加类名
+                    aDiv[i].className = 'visible'
+                }
             }
-            //给当前按钮添加类名
-            this.className = 'active'
+        )(i)
 
-            //gie按钮对象div添加类名
-            aDiv[tmp.indexOf(this)].className = 'visible'
-        }
     }
 </script>
