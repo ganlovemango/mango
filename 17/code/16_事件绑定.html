@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0}
+       div{width: 300px;height: 300px;background: red;position: absolute;
+            top: 0;left: 0;}
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+</body>
+</html>
+<script>
+    oDiv = document.getElementById('d1')
+
+   //  oDiv.onclick = function (e) {
+   //     console.log(111)
+   //  }
+   //  oDiv.onclick = function (e) {
+   //     console.log(222)
+   //  }
+   // oDiv.onclick = function (e) {
+   //     console.log(333)
+   //  }
+
+    //一个事件多个处理函数
+    oDiv.addEventListener('click',function () {
+        console.log(111)
+    },false)
+
+    oDiv.addEventListener('click',function () {
+        console.log(222)
+    },false)
+
+    oDiv.addEventListener('click',function () {
+        console.log(333)
+    },false)
+
+    //阻止右键菜单
+    document.oncontextmenu = function ()
+    {
+        return false;
+    }
+
+    document.onmousemove = function(e) {
+
+        var ev = e || event;
+        var top = ev.clientY;
+        var left = ev.clientX;
+
+        oDiv.style.top = '' + top + 'px'
+        oDiv.style.left = '' + left + 'px'
+
+    }
+</script>

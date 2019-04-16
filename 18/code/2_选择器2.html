@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<select name="" id="s1" size="5">
+    <option value="">草莓</option>
+    <option value="">杨梅</option>
+    <option value="">西红柿</option>
+    <option value="">葡萄</option>
+</select>
+<button>>></button>
+<select name="" id="s2" style="width: 130px" size="5"></select>
+
+</body>
+</html>
+<script>
+
+    $("button").click(function () {
+        $("#s1 option:selected").appendTo("#s2")
+    })
+</script>

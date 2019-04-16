@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<div id="d1" style="height: 100px;background: red"></div>
+<p>黑洞频率</p>
+<ul>
+    <b></b>
+    <li>战狼</li>
+    <li>杀破狼</li>
+    <li class="zhsh">纵横四海</li>
+    <p>小鬼当家</p>
+    <li>英雄</li>
+    <p name="p1">霸王别姬</p>
+</ul>
+<input type="text" name="username">
+</body>
+</html>
+<script>
+    //id选择期
+    // $("#d1").css('background-color','blue')
+    // $("#d1").css({'background-color':'rgb(20%,30%,60%)','height':'300px'})
+
+    //类选择器
+    // $('.zhsh').text('妇联4')  //修改文本
+
+    //通用选择器
+    $('*').css('margin','0')
+
+    //层级选择器
+    // $("ul li").css('font-size','50px')
+    // $('.zhsh + p').css('background-color','yellow')
+
+    //基本
+    // $("li:first").css('color','red')
+    // $("li:odd").css('background','red')
+    // $("li:eq(2)").css('background','red')
+
+    //匹配包含
+    // $("li:contains('狼')").css('font-size','3em')
+    // $(":empty").css('background','black')
+
+    //属性选择器
+    // $('[name]').css('background','gold')
+    // $('[name="username"]').css('background','gold')
+
+    //子元素
+    // $("ul li:first-child").css("font-size",'5rem')
+    // $("ul li:nth-child(2)").css("font-size",'5rem')
+
+    //表单
+    $(':text').css('width','300px')
+</script>
+
+

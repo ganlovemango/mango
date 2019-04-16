@@ -70,6 +70,7 @@ jQuery是一个快速、简洁的JavaScript框架，是继Prototype之后又一�
     - visible  元素的`visibility: hidden` 或 `opacity: 0`被认为是可见的
 
 - 子元素
+
     - :first-child 第一个孩子必须是指定元素
 
 - 表单 
@@ -122,4 +123,4 @@ $('.nav input:eq(0)').click(function(){
 
   
 
-  ​
+  

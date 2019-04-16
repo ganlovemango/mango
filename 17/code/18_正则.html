@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1 test
+    regx = /\d{3,4}-\d{8}/g
+    // if (regx.test("010-93838712")) {
+    //     console.log("是电话号码")
+    // } else {
+    //     console.log("不是电话号码")
+    // }
+
+    //2 exec
+    // res = regx.exec("sjkfdkjsjkd010-12345678djkkjsdfjk0310-098765432dfsdf")
+    // console.log(res)
+
+    //字符串的正则方法
+    // match
+    // s1 = "sjkfdkjsjkd010-12334d5678djkkjsdfjk0310-0987d654332dfsdf"
+    // res = s1.match(regx)
+    // console.log(res)
+
+    // index = s1.search(regx)
+    // console.log(index)
+
+    //replace
+    // s2 = "红鲤鱼绿鲤鱼"
+    // res = s2.replace(/鱼/g,'驴')
+    // console.log(res)
+
+    //split
+    s3 = "hello hello  hello    helllo"
+    // res = s3.split(' ')
+    res = s3.split(/\s+/)
+    console.log(res)
+</script>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin:0}
+        -body{height: 3000px;width: 2000px;}
+        div{width: 300px;height: 300px;background: red;position: absolute;
+            top: 0;left: 0;}
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+</body>
+</html>
+<script>
+    oDiv = document.getElementById('d1')
+    //事件处理函数的参数：事件对象，包含了事件所有的信息
+    oDiv.onclick = function (e) {
+        //兼容高级浏览器（chrome\firefox）和IE浏览器
+        var ev = e || event
+        console.log(ev)
+        // for (item in ev){
+        //     console.log(item,ev[item])
+        // }
+        console.log("div")
+
+        //阻止冒泡
+        // ev.cancelBubble = true
+        ev.stopPropagation()
+
+
+        //鼠标的信息
+        //窗口可视区域的左上为原点
+        // console.log(ev.clientX,ev.clientY)
+        //
+        // //不受窗口滚动影响
+        // console.log(ev.pageX,ev.pageY)
+        //
+        // //以屏幕左上角为原点
+        // console.log(ev.screenX,ev.screenY)
+
+        //按键信息
+
+
+    }
+    oBody = document.getElementsByTagName('body')[0]
+    oBody.onclick = function (e) {
+        console.log("body")
+
+    }
+    oDiv.style.left = '0px'
+    oDiv.style.top = '0px'
+    document.onkeydown = function (e) {
+        var ev = e || event
+        // console.log(ev)
+        // console.log(oDiv.style.left)
+        x = parseInt(oDiv.style.left) + 20
+        console.log(x)
+        switch (ev.keyCode){
+            case 39://上
+                break
+            case 37: //右
+                oDiv.style.left = '' + x + 'px'
+                break
+            case 38:
+                oDiv.style.top = '' + (parseInt(oDiv.style.top) + 20) + 'px'
+                break
+            case 40:
+                break
+        }
+
+    }
+</script>

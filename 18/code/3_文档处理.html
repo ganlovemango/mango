@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+        #d1{width: 300px;background: blue;height: 300px}
+        #d2{width: 200px;background: red;height: 100px}
+    </style>
+</head>
+<body>
+<div id="d1">
+
+</div>
+<div id="d2">
+
+</div>
+</body>
+</html>
+<script>
+    // 在标签内部增加新标签
+    // $('div').append("<p>哈喽</p>")
+    // $('#d2').appendTo('#d1')
+    // $('#d1').before($('#d2'))
+
+    //删除
+    // $('#d1').remove()
+    // $('#d2').remove()
+    $('body').empty()
+</script>

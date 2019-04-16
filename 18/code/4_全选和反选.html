@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <input type="checkbox" id="all"> 全选
+    <input type="checkbox" id="reverse"> 反选
+
+</div>
+<hr>
+<div id="content">
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+    <input type="checkbox" ><br>
+</div>
+</body>
+</html>
+<script>
+    $('#all').click(function () {
+        $("#content input").prop('checked',true)
+    })
+    $('#reverse').click(function () {
+        $("#content input").prop('checked',function (index,value) {
+            return !value
+        })
+    })
+    //联动全选
+    $("#content input").click(function () {
+        tmp = $("#content input").toArray()
+        res = tmp.every(function (value,index) {
+            return value.checked == true
+        })
+        if (res){
+            $('#all').prop('checked',true)
+        }
+    })
+</script>

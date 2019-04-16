@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="http://www.baidu.com" method="get" name="f1">
+    姓名：<input type="text" name="username"> <span></span> <br>
+    <input type="submit" value="提交" name="s1">
+</form>
+</body>
+</html>
+<script>
+    //获取form
+    oForm = document.f1
+    //获取表单项
+    oUsername = oForm.username
+    console.log(oForm,oUsername)
+    oForm.s1.onclick = function (e) {
+        var ev = e || event
+        //去除缺省提交
+        ev.preventDefault()
+
+        //验证数据
+        username = oUsername.value
+        if (username && username.length < 6){
+            //alert("用户名不得低于6位")
+            oUsername.nextElementSibling.innerHTML = "用户名不得低于6位"
+            oUsername.value = ''
+            oUsername.focus()  //将光标移动到输入框
+            return
+        }
+        console.log('提交')
+        oUsername.nextElementSibling.innerHTML =''
+        oForm.submit()  //手动提交
+    }
+</script>
