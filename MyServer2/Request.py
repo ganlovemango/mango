@@ -19,7 +19,10 @@ class Request:
         self.POST = self.__post_parameters()
 
         #cookie
-        self.cookie = environ.get('HTTP_COOKIE').split(";")
+        if environ.get('HTTP_COOKIE'):
+            self.cookie = environ.get('HTTP_COOKIE').split(";")
+        else:
+            self.cookie = {}
         """
         ['uid=1','username=admin']
         """

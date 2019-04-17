@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+        div{width: 500px;height: 300px;
+            background: red;}
+    </style>
+</head>
+<body id="body">
+<button>显示</button>
+<button>隐藏</button>
+<button>滑动</button>
+<button>淡入/淡出</button>
+<button>自定义动画</button>
+<div></div>
+</body>
+</html>
+<script>
+    //显示
+    $('button').eq(0).click(function () {
+        $('div').show(2000,function () {
+            console.log("end")
+        })
+    })
+
+    $('button').eq(1).click(function () {
+         $('div').hide(2000,function () {
+             console.log("end")
+         })
+    })
+    //滑动
+    $('button').eq(2).click(function () {
+        $('div').slideToggle(2000,function () {
+            console.log("end")
+        })
+    })
+
+    $('button').eq(3).click(function () {
+        $('div').fadeToggle(2000,function () {
+            console.log("end")
+        })
+    })
+
+    //自定义动画
+    $('button').eq(4).click(function () {
+        $('div').animate({height:'50px',width:'30px',opacity:0.5},2000)
+    })
+
+</script>

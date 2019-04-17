@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c87f7756-0d02-4d09-ade6-66ad29387395" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/17/code/14_事件冒泡.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19/code/jquery1.11.1/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/19/code/jquery1.11.1/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyServer2/static/js/jquery1.11.1/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyServer2/static/js/jquery1.11.1/jquery.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/17/14_事件冒泡.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/18/doc/JQuery.md" beforeDir="false" afterPath="$PROJECT_DIR$/18/doc/JQuery.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/18/doc/正则表达式.md" beforeDir="false" afterPath="$PROJECT_DIR$/18/doc/正则表达式.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyServer2/DBHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyServer2/DBHelper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyServer2/Request.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyServer2/Request.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyServer2/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyServer2/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyServer2/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyServer2/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyServer2/view.py" beforeDir="false" afterPath="$PROJECT_DIR$/MyServer2/view.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +33,9 @@
     <SUITE FILE_PATH="coverage/bj1092$2.coverage" NAME="2 Coverage Results" MODIFIED="1554279939979" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/10/code" />
     <SUITE FILE_PATH="coverage/bj1092$settings.coverage" NAME="settings Coverage Results" MODIFIED="1554881716504" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/blog" />
     <SUITE FILE_PATH="coverage/bj1092$1_connect.coverage" NAME="1_connect Coverage Results" MODIFIED="1554173291584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/9/code" />
-    <SUITE FILE_PATH="coverage/bj1092$myserver.coverage" NAME="myserver Coverage Results" MODIFIED="1554861942783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyServer" />
     <SUITE FILE_PATH="coverage/bj1092$myserver__1_.coverage" NAME="myserver (1) Coverage Results" MODIFIED="1554880194288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyServer2" />
     <SUITE FILE_PATH="coverage/bj1092$1_pillow.coverage" NAME="1_pillow Coverage Results" MODIFIED="1555135340562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop/share" />
+    <SUITE FILE_PATH="coverage/bj1092$myserver.coverage" NAME="myserver Coverage Results" MODIFIED="1555490447785" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyServer2" />
     <SUITE FILE_PATH="coverage/bj1092$1.coverage" NAME="1 Coverage Results" MODIFIED="1554253461091" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/9/code" />
     <SUITE FILE_PATH="coverage/bj1092$test1__1_.coverage" NAME="test1 (1) Coverage Results" MODIFIED="1554866804146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyServer2" />
     <SUITE FILE_PATH="coverage/bj1092$DBHelper.coverage" NAME="DBHelper Coverage Results" MODIFIED="1554769131451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/MyServer" />
@@ -80,52 +85,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/18/code/2_选择器.html">
+        <entry file="file://$PROJECT_DIR$/MyServer2/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="150">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/18/code/2_选择器2.html">
+        <entry file="file://$PROJECT_DIR$/MyServer2/view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+            <state relative-caret-position="79">
+              <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
               <folding>
-                <element signature="n#style#0;n#select#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#0#11#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/18/code/3_文档处理.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/18/code/4_全选和反选.html">
+        <entry file="file://$PROJECT_DIR$/MyServer2/static/view/prevince.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/16/code/12_全选和反选.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+            <state relative-caret-position="387">
+              <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -146,6 +130,7 @@
     <findStrings>
       <find>img</find>
       <find>form</find>
+      <find>where</find>
     </findStrings>
     <replaceStrings>
       <replace>/static</replace>
@@ -157,27 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/blog/Response.py" />
-        <option value="$PROJECT_DIR$/blog/view.py" />
-        <option value="$PROJECT_DIR$/16/code/1.js" />
-        <option value="$PROJECT_DIR$/16/code/1_引入js的方式.html" />
-        <option value="$PROJECT_DIR$/16/code/2_js操作三要素.js" />
-        <option value="$PROJECT_DIR$/16/code/2_js操作三要素.html" />
-        <option value="$USER_HOME$/Desktop/share/1_pillow.py" />
-        <option value="$PROJECT_DIR$/16/code/3_变量定义.html" />
-        <option value="$PROJECT_DIR$/16/code/4_数据类型.html" />
-        <option value="$PROJECT_DIR$/16/code/test1.py" />
-        <option value="$PROJECT_DIR$/16/code/5_运算.html" />
-        <option value="$PROJECT_DIR$/16/code/6_类型转换.html" />
-        <option value="$PROJECT_DIR$/16/code/review.html" />
-        <option value="$PROJECT_DIR$/16/code/7_流程控制.html" />
-        <option value="$PROJECT_DIR$/16/code/8_try_catch.html" />
-        <option value="$PROJECT_DIR$/16/code/9_数组.html" />
-        <option value="$PROJECT_DIR$/16/code/10_数组函数.html" />
-        <option value="$PROJECT_DIR$/16/code/11_函数定义.html" />
-        <option value="$PROJECT_DIR$/16/code/12_全选和反选.html" />
-        <option value="$PROJECT_DIR$/16/code/13_参数传递.html" />
-        <option value="$PROJECT_DIR$/16/code/14_内部函数.html" />
         <option value="$PROJECT_DIR$/16/code/15_变量的作用域.html" />
         <option value="$PROJECT_DIR$/16/code/16_面向对象.html" />
         <option value="$PROJECT_DIR$/17/code/1_date.html" />
@@ -208,6 +172,27 @@
         <option value="$PROJECT_DIR$/18/3_文档处理.html" />
         <option value="$PROJECT_DIR$/18/code/3_文档处理.html" />
         <option value="$PROJECT_DIR$/18/code/4_全选和反选.html" />
+        <option value="$PROJECT_DIR$/18/code/5_js和jQuery对象转化.html" />
+        <option value="$PROJECT_DIR$/18/code/6_过滤.html" />
+        <option value="$PROJECT_DIR$/18/code/7_查找.html" />
+        <option value="$PROJECT_DIR$/18/code/8_选项卡.html" />
+        <option value="$PROJECT_DIR$/18/code/9_ready.html" />
+        <option value="$PROJECT_DIR$/18/code/10_事件绑定.html" />
+        <option value="$PROJECT_DIR$/18/code/11_事件委托.html" />
+        <option value="$PROJECT_DIR$/18/code/12_hover.html" />
+        <option value="$PROJECT_DIR$/18/code/13_动画.html" />
+        <option value="$PROJECT_DIR$/18/code/14_原声ajax.html" />
+        <option value="$PROJECT_DIR$/MyServer2/static/view/ajax1.html" />
+        <option value="$PROJECT_DIR$/MyServer2/Request.py" />
+        <option value="$PROJECT_DIR$/MyServer2/static/view/ajax2.html" />
+        <option value="$PROJECT_DIR$/MyServer2/urls.py" />
+        <option value="$PROJECT_DIR$/MyServer2/settings.py" />
+        <option value="$PROJECT_DIR$/MyServer2/DBHelper.py" />
+        <option value="$PROJECT_DIR$/19/code/1_media.html" />
+        <option value="$PROJECT_DIR$/19/code/2_bootstrap.html" />
+        <option value="$PROJECT_DIR$/19/code/3_栅格.html" />
+        <option value="$PROJECT_DIR$/MyServer2/view.py" />
+        <option value="$PROJECT_DIR$/MyServer2/static/view/prevince.html" />
       </list>
     </option>
   </component>
@@ -233,41 +218,36 @@
             <path>
               <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
               <item name="bj1092" type="462c0819:PsiDirectoryNode" />
-              <item name="16" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
-              <item name="16" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
-              <item name="17" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
-              <item name="17" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
               <item name="18" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
               <item name="bj1092" type="462c0819:PsiDirectoryNode" />
-              <item name="18" type="462c0819:PsiDirectoryNode" />
+              <item name="19" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
+              <item name="19" type="462c0819:PsiDirectoryNode" />
               <item name="code" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
               <item name="bj1092" type="462c0819:PsiDirectoryNode" />
-              <item name="18" type="462c0819:PsiDirectoryNode" />
-              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="MyServer2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
+              <item name="MyServer2" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="bj1092" type="b2602c69:ProjectViewProjectNode" />
+              <item name="bj1092" type="462c0819:PsiDirectoryNode" />
+              <item name="MyServer2" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -295,6 +275,8 @@
       <recent name="$PROJECT_DIR$/MyServer/model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/MyServer2/static/js" />
+      <recent name="$PROJECT_DIR$/19/code" />
       <recent name="$PROJECT_DIR$/18/code" />
       <recent name="$PROJECT_DIR$/blog/templates" />
       <recent name="$PROJECT_DIR$/10/code" />
@@ -312,7 +294,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test1">
+  <component name="RunManager" selected="Python.myserver">
     <configuration name="课题" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bj1092" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -401,7 +383,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="myserver" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bj1092" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -409,12 +391,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/blog" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MyServer2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blog/settings.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/MyServer2/myserver.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -447,11 +429,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.myserver" />
         <item itemvalue="Python.test1" />
         <item itemvalue="Python.1_pillow" />
         <item itemvalue="Python.myserver (2)" />
         <item itemvalue="Python.课题" />
-        <item itemvalue="Python.settings" />
       </list>
     </recent_temporary>
   </component>
@@ -492,12 +474,15 @@
       <workItem from="1555308358082" duration="12804000" />
       <workItem from="1555330009926" duration="609000" />
       <workItem from="1555375672770" duration="9088000" />
-      <workItem from="1555393944111" duration="12891000" />
+      <workItem from="1555393944111" duration="13021000" />
+      <workItem from="1555459448644" duration="11040000" />
+      <workItem from="1555479848042" duration="5844000" />
+      <workItem from="1555486061813" duration="4852000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="200770000" />
+    <option name="totallyTimeSpent" value="222636000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -509,16 +494,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1217" height="812" extended-state="6" />
+    <frame x="65" y="-4" width="1215" height="804" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2630677" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06769495" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24852072" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.27218935" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.06508876" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35502958" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988167" />
@@ -564,11 +549,23 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MyServer2/DBHelper.py</url>
+          <line>128</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/MyServer2/DBHelper.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="op[0]" language="Python" />
-        <watch expression="op[1]" language="Python" />
-        <watch expression="ops[op[1]]" language="Python" />
+        <watch expression="self.cursor" />
       </configuration>
     </watches-manager>
   </component>
@@ -592,177 +589,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Desktop/share/1_pillow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="50" column="9" selection-start-line="50" selection-start-column="9" selection-end-line="50" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/share/1.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/1_引入js的方式.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/2_js操作三要素.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/3_变量定义.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/4_数据类型.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="874">
-          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/5_运算.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2204">
-          <caret line="116" column="9" selection-start-line="116" selection-start-column="9" selection-end-line="116" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/test1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="20" selection-start-column="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/6_类型转换.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="45" column="12" lean-forward="true" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/review.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/8_try_catch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="13" column="21" lean-forward="true" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/7_流程控制.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="176" selection-start-line="176" selection-end-line="176" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="3191" column="4" selection-start-line="3191" selection-start-column="4" selection-end-line="3191" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/9_数组.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/10_数组函数.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1045">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/11_函数定义.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="72" column="11" selection-start-line="72" selection-start-column="11" selection-end-line="72" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/13_参数传递.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/14_内部函数.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="34" column="11" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/15_变量的作用域.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/16/code/16_面向对象.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/17/code/1_date.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="14" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/17/code/2_获取元素.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/17/code/3_修改标签.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1102">
-          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/17/code/4_查找标签.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="741">
-          <caret line="39" column="45" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/17/code/5_增加.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
@@ -923,8 +749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/18/code/2_选择器.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="44" column="44" lean-forward="true" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
+        <state relative-caret-position="836">
+          <caret line="44" column="44" selection-start-line="44" selection-start-column="44" selection-end-line="44" selection-end-column="44" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -934,7 +760,7 @@
     <entry file="file://$PROJECT_DIR$/18/code/2_选择器2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
-          <caret line="22" column="48" lean-forward="true" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
+          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
           <folding>
             <element signature="n#style#0;n#select#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -950,15 +776,192 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/16/code/12_全选和反选.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
+        <state relative-caret-position="1501">
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/18/code/4_全选和反选.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        <state relative-caret-position="146">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/5_js和jQuery对象转化.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="35" column="34" lean-forward="true" selection-end-line="36" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/6_过滤.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/7_查找.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/8_选项卡.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="54" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/9_ready.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="20" column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/10_事件绑定.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/11_事件委托.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="16" selection-end-line="43" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/12_hover.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="7" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/13_动画.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/18/code/14_原声ajax.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/19/code/jquery1.11.1/jquery.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/static/js/jquery1.11.1/jquery.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/static/view/ajax1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/Request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/static/view/ajax2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="65" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/myapplication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/myserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="32" lean-forward="true" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/DBHelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/19/code/1_media.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/19/code/3_栅格.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="163" column="4" selection-start-line="163" selection-start-column="4" selection-end-line="163" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/19/code/2_bootstrap.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="19" lean-forward="true" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/view.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="196" column="26" selection-start-line="196" selection-start-column="26" selection-end-line="196" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MyServer2/static/view/prevince.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="40" column="52" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+        select{width: 200px;}
+    </style>
+</head>
+<body id="body">
+<button>点一次</button>
+<!--<select name="" id="province" size="5">-->
+    <!--<option value="">河北</option>-->
+    <!--<option value="">河南</option>-->
+<!--</select>-->
+<!--<select name="" id="city" size="5">-->
+    <!--<option value=""></option>-->
+<!--</select>-->
+<!--<select name="" id="county" size="5">-->
+    <!--<option value=""></option>-->
+<!--</select>-->
+</body>
+</html>
+<script>
+    $('button').click(function (event) {
+        $('body').append("<button>点一下</button>")
+        event.stopPropagation()
+    })
+
+    //delegate 将事件委托给当前标签的父标签处理
+    //$('body') 必须是父标签,父标签必须已经存在
+    // 第一个参数是选择器,一般是动态创建的标签
+    //第二个参数是事件类型
+    //function是事件处理函数
+    $('body').delegate('button','click',function () {
+        $('body').append("<button>点一下</button>")
+    })
+
+    // $('body').click(function () {
+    //     console.log('body')
+    //     $('body').append("<button>点一下</button>")
+    // })
+</script>

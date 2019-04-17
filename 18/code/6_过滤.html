@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+        div{
+            height: 50px;
+            background: red;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>
+<script>
+    //选择下标为1的元素，下标从0开始
+    // $('div').eq(1).css('background','yellow')
+    $('div').last().css('border','5px solid purple')
+</script>

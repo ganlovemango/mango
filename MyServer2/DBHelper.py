@@ -124,6 +124,7 @@ class DBHelper:
 
     def query(self,sql):
         self.sql = sql  # 保留sql语句
+        print(sql)
         # 初始化查询参数字典
         self.__init_options()
         try:

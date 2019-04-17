@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script src="/static/js/jquery1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<form action="">
+    用户名: <input type="text" name="username"> <span></span> <br>
+    密码: <input type="password" name="password"> <span></span> <br>
+    <input type="submit" value="注册">
+</form>
+</body>
+</html>
+<script>
+    //用户名失去焦点时触发
+  $("[name='username']").blur(function (event) {
+      value = this.value
+        var _this = this
+      //ajax请求,查询用户名是否存在
+      // $.get('/getusername',{'username':value},function (data) {
+      //     //this代表ajax对象
+      //     //data是服务器返回的数据
+      //     console.log(data)
+      //
+      //     $(_this).next().text(data.msg)
+      // },'json')
+
+      //第一个参数是请求路径
+      // 第二个参数是请求参数,一般使用{key:value,key:value}或者key=value&key=value
+      //第三个参数:function回调函数,function(data){} data就是服务器的返回值
+      //第四个参数:type返回值的类型,一般用'json'
+      // $.post('/getusername',{'username':value},function (data) {
+      //     //this代表ajax对象
+      //     //data是服务器返回的数据
+      //     console.log(data,typeof data)
+      //
+      //     // $(_this).next().text(data.msg)
+      // },'json')
+
+      //表单的序列化
+      console.log($('form').serialize())
+      $.post('/getusername',$('form').serialize(),function (data) {
+          //this代表ajax对象
+          //data是服务器返回的数据
+          console.log(data,typeof data)
+
+          // $(_this).next().text(data.msg)
+      },'json')
+  })
+</script>

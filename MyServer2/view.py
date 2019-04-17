@@ -1,8 +1,10 @@
+import json
 import os
 import hashlib
 from urllib.parse import parse_qs  #系统的查询参数解析方法
 
 import jinja2
+import pymysql
 
 from DBHelper import DBHelper
 from Response import *
@@ -155,3 +157,46 @@ def student_detail(req,sno):
         return render(req,'studentdetail.html',{'title':student['sname'],'data':student})
     else:
         return render(req,'404.html')
+
+# ajax
+def show_ajax(req):
+    return  render(req,'ajax1.html')
+def show_ajax1(req):
+    return render(req, 'ajax2.html')
+def do_ajax1(req):
+    username = req.GET.get('username')
+    print(username)
+    res = {'msg':'数据已收到','code':'1'}
+    res = json.dumps(res)
+    print(res)
+    req.start_response("200 ok",[('ContentType','application/json')])
+    return [res.encode('utf8')]
+
+# 检查用户名是否重名
+def check_username(req):
+    if req.method == 'GET':
+        username = req.GET.get('username')
+    else:
+        username = req.POST.get('username')
+    # 查询数据库
+    db = DBHelper('user')
+    res = db.where(username=username).select()
+    if res:
+        data = {'code':1,'msg':'用户名不可用'}
+    else:
+        data = {'code':0,'msg':'用户名可用'}
+    req.start_response("200 ok",[("ContentType","application/json")])
+    print(res)
+    return [json.dumps(data).encode('utf8')]
+
+def show_province(req):
+    return render(req, 'prevince.html')
+
+def get_province(req):
+    db = DBHelper('region')
+    data = db.where(pid='0').select()
+    print(db.sql)
+    print(data)
+
+    req.start_response("200 ok", [("ContentType", "application/json")])
+    return [json.dumps(data).encode('utf8')]

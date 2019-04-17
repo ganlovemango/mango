@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+        div{
+            height: 50px;
+            background: red;
+            margin-top: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="d1"></div>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>
+<script>
+    console.log($('div'),typeof $('div'))
+    //得到的是jQuery的数组
+    // $('div').indexOf($('#d1'))
+    //jQuery=>js对象转化，
+    console.log($('div')[0],typeof $('div')[0])
+    $('div')[0].innerText = "jQuery对象转js对象"
+    //jQuery对象不能使用js样式、属性、方法
+    // $('#d1').innerText = "111111111"
+
+    //js=>jQuery
+    oFirst = document.getElementById('d1')
+    //js对象不能调用jQuery方法
+    // oFirst.css('color','red')
+    $(oFirst).css('color','white')
+</script>

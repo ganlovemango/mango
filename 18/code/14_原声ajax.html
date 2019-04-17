@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //1 创建ajax对象
+    xhr = new XMLHttpRequest()
+
+    //2 创建http请求
+    xhr.open('get','/ajax1?username=tom')
+
+    //3 发送http请求
+    xhr.send(null)
+    
+    //4 监控ajax状态
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText)
+        }
+    }
+</script>

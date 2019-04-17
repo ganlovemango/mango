@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="d1">
+    <b>全靠浪</b>
+    <div style="height: 50px;background: red">
+        <p style="height: 30px;background: blue"></p>
+    </div>
+    <span>划船不用浆</span>
+
+</div>
+
+</body>
+</html>
+<script>
+    //父标签
+    // console.log($('span').parent())
+    // //所有祖先标签集合
+    // console.log($('span').parents())
+
+    //孩子集合
+    // console.log($('#d1').children('span'))
+    // console.log($('#d1').children())
+
+    //下一个兄弟
+    console.log($('#d1').children('div').next())
+
+    //同辈兄弟
+    console.log($('#d1').children('div').siblings())
+</script>

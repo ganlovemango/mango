@@ -8,4 +8,11 @@ patterns = [(r'^/$', view.index),
             (r'^/studentlist$',view.student_list),
             (r'^/studentdetail/(\d+)$',view.student_detail),
             (r'^/logout$',view.logout),
+            # ajax
+            (r'^/showajax$',view.show_ajax),
+            (r'^/showajax1$',view.show_ajax1),
+            (r'^/ajax1',view.do_ajax1),
+            (r'^/getusername$',view.check_username),
+            (r'^/showprovince$',view.show_province),
+            (r'^/province$',view.get_province),
            ]

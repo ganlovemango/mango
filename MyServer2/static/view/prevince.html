@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市县三级联动</title>
+    <script src="/static/js/jquery1.11.1/jquery.min.js"></script>
+    <style>
+        #province{width: 150px;}
+        #city{width: 150px;}
+        #county{width: 150px;}
+        div{float: left;margin-right: 10px;}
+    </style>
+</head>
+<body>
+<div>
+   <h2>省</h2>
+    <select name="" id="province">
+        <option value="0"></option>
+    </select>
+</div>
+<div>
+   <h2>市</h2>
+    <select name="" id="city">
+        <option value="0"></option>
+    </select>
+</div>
+<div>
+   <h2>地区</h2>
+    <select name="" id="county">
+        <option value="0"></option>
+    </select>
+</div>
+</body>
+</html>
+<script>
+
+    $.get('/province','pid=0',function (data) {
+        // $('#province').append()
+        var html = ''
+        for (i=0;i<data.length;i++){
+            html += "<option value='"+data[i].code+"'>"+data[i].name + "</option>"
+        }
+        $('#province').append(html)
+    },'json')
+</script>

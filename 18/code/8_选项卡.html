@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <script src="jquery1.11.1/jquery.min.js"></script>
+    <style>
+        #content div{display: none}
+        .active{background: yellow}
+        #content .visible{display: block}
+
+    </style>
+</head>
+<body>
+<div id="header">
+    <button class="active">军事新闻</button>
+    <button>娱乐八卦</button>
+    <button>体育视频</button>
+</div>
+<div id="content">
+    <div class="visible" style="height: 200px;width: 400px;background: red"></div>
+    <div style="height: 200px;width: 400px;background: blue"></div>
+    <div style="height: 200px;width: 400px;background: purple"></div>
+</div>
+</body>
+</html>
+<script>
+    $('#header button').click(function () {
+        //this代表当前的对象,js对象
+        // console.log(this)
+        $(this).addClass('active').siblings().removeClass('active')
+        $("#content div").eq($('#header button').index($(this))).addClass('visible').siblings().removeClass('visible')
+        console.log($("#content div").size())
+    })
+</script>
