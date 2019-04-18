@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="/static/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+    <h1>你好，世界！</h1>
+
+    <div class="container">
+        <div class="bs-example" data-example-id="striped-table">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+
+                  <th>行政代码</th>
+                  <th>行政区</th>
+                  <th>父级单位代码</th>
+                </tr>
+              </thead>
+              <tbody id="my_content">
+
+
+              </tbody>
+            </table>
+          </div>
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="active" ><a href="#" id="first">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+    </div>
+    <div class="container">
+
+    </div>
+    <script src="/static/js/bootstrap/js/jquery-1.12.4.min.js"></script>
+    <script src="/static/js/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+<script>
+
+    function load_page(obj){
+        var first = obj.first
+        var last = obj.last
+
+        html = '<li>\n' +
+            '              <a href="#" aria-label="Previous">\n' +
+            '                <span aria-hidden="true">&laquo;</span>\n' +
+            '              </a>\n' +
+            '            </li>'
+        html += '<li class="active" ><a href="#" id="first">'+first+'</a></li>'
+        for (i = first+1;i<=last;i++){
+            html+= ' <li><a href="#">'+i+'</a></li>'
+        }
+        html += '<li>\n' +
+            '              <a href="#" aria-label="Next">\n' +
+            '                <span aria-hidden="true">&raquo;</span>\n' +
+            '              </a>\n' +
+            '            </li>'
+
+        $(".pagination").empty().append(html)
+    }
+
+    // 加载第一页数据
+    $.get('/getdata',{'page':1,'first':1},function (data) {
+                // console.log(data)
+
+                html = ''
+                for (i = 0;i<data.length;i++){
+                    html += " <tr><td>"+data[i].code+"</td>"
+                    html += " <td>"+data[i].name+"</td>"
+                    html += " <td>"+data[i].pid+"</td></tr>"
+                }
+                $('#my_content').empty().append(html)
+                obj = data[data.length-1]
+                load_page(obj)
+                 // $('.pagination a').parent().addClass('active').siblings().removeClass('active')
+
+            },'json')
+
+    $(".pagination").delegate('a','click',function () {
+        num = parseInt(this.innerText)
+        if (!isNaN(num)){ //点中的数字
+            first = $('#first').innerText
+            $.get('/getdata',{'page':num,'first':first},function (data) {
+                // console.log(data)
+                html = ''
+                for (i = 0;i<data.length;i++){
+                    html += " <tr><td>"+data[i].code+"</td>"
+                    html += " <td>"+data[i].name+"</td>"
+                    html += " <td>"+data[i].pid+"</td></tr>"
+                }
+                $('#my_content').empty().append(html)
+                obj = data[data.length-1]
+                load_page(obj)
+
+            },'json')
+            $(".pagination a").parent().removeClass('active')
+            $(".pagination a").each(function (index,value) {
+                console.log(index,value)
+                value = parseInt(value)
+                if (num == index){
+                    console.log('dddd',num)
+                    $(".pagination a").eq(index).parent().addClass('active')
+                }
+            })
+            // $(this).parent().addClass('active').siblings().removeClass('active')
+
+        }
+    })
+    // $(".pagination a").click(function () {
+    //     $(this).parent().addClass('active').siblings().removeClass('active')
+    //     num = parseInt(this.innerText)
+    //     if (!isNaN(num)){ //点中的数字
+    //         first = $('#first').innerText
+    //         $.get('/getdata',{'page':num,'first':first},function (data) {
+    //             console.log(data)
+    //             html = ''
+    //             for (i = 0;i<data.length;i++){
+    //                 html += " <tr><td>"+data[i].code+"</td>"
+    //                 html += " <td>"+data[i].name+"</td>"
+    //                 html += " <td>"+data[i].pid+"</td></tr>"
+    //             }
+    //             $('#my_content').empty().append(html)
+    //             obj = data[data.length-1]
+    //             load_page(obj)
+    //         },'json')
+    //     }
+    //
+    //
+    //
+    // })
+</script>

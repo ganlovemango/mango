@@ -200,3 +200,45 @@ def get_province(req):
 
     req.start_response("200 ok", [("ContentType", "application/json")])
     return [json.dumps(data).encode('utf8')]
+
+def show_test(req):
+    return render(req, 'test1.html')
+
+# 分页
+def show_page(req):
+    return render(req, 'page.html')
+
+def get_data(req):
+    # 页数
+    page = int(req.GET.get('page',1))
+    # 第一页的页号
+    first = int(req.GET.get('first',1))
+
+    # 1.每页显示数据条数 10
+    # 2.当前请求的是第几页
+    # 3.获取表中总记录数
+    # 4.计算总页数: 总记录数 /  每页显示数据条数
+    # 5.当前页显示的记录: limit 10*(page-1),10
+
+    db = DBHelper('region')
+    data = db.limit(10*(page-1),10).select()
+    print(data)
+    print(db.sql)
+
+    # 计算总记录数
+    total = db.fields('count(*) num').select()
+    if total:
+        total = total[0]['num']
+    countOfPage = total // 10  #总页数
+
+    # 默认每页显示10个页号
+    pageNo = {'first': first, 'last': first + 9}
+    if page - 5 < 0:
+        pageNo['first'] = 1
+        pageNo['last'] = 10
+    elif page + 4 > pageNo['last']:
+        pageNo['last'] = page + 4
+        pageNo['first'] = pageNo['last'] - 9
+    data.append(pageNo)
+    req.start_response("200 ok", [("ContentType", "application/json")])
+    return [json.dumps(data).encode('utf8')]

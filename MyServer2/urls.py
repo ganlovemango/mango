@@ -15,4 +15,7 @@ patterns = [(r'^/$', view.index),
             (r'^/getusername$',view.check_username),
             (r'^/showprovince$',view.show_province),
             (r'^/province$',view.get_province),
+            (r'^/test1$',view.show_test),
+            (r'^/page$',view.show_page),
+            (r'^/getdata$',view.get_data),
            ]
