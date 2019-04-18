@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据渲染</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--文本插值-->
+    {{message}} <br>
+    <p>{{title}}</p>
+    <!--v-text 只显示文本,会把标签当普通文本 -->
+    <p v-text="c1"></p>
+    <p v-text="hello"></p>
+    <!--v-html-->
+    <p v-html="hello"></p>
+</div>
+</body>
+</html>
+<script>
+    var vm =new Vue({
+        el:'#app',
+        data:{
+            message:'春困秋乏夏打盹',
+            title:"印度阿三",
+            c1:1000,
+            hello:'<h1>Hello World</h1>'
+        },
+    })
+    vm.message = "睡不醒的冬三月"
+</script>

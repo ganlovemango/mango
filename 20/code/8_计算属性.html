@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="radius">
+    <p>{{area}}</p>
+    <p>{{computeArea()}}</p>
+</div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            radius:10
+        },
+        computed:{
+            area:function () {
+                //计算属性依赖与data中原有数据，如果数据发生变化，则重新计算，否则依赖于缓存
+                res = this.radius * this.radius * Math.PI
+                return res
+            }
+        },
+        methods:{
+            computeArea: function () {
+                return this.radius * this.radius * Math.PI
+            }
+        }
+    })
+
+    //方法和计算属性的区别
+    //计算属性依赖于缓存   方法每次都要重新计算
+    start = new Date()
+    sum = 0
+    for (i = 0;i<1000000;i++){
+       sum += vm.area
+    }
+    console.log(sum)
+    end = new Date()
+    console.log(end-start)
+</script>

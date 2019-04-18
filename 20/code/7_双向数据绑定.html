@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-model-->
+    <input type="text" v-model="msg">
+    <p>{{msg}}</p>
+    <hr>
+    <input type="checkbox" v-model="checked">
+    <p>{{checked}}</p>
+    <hr>
+    <select name="" v-model="selected">
+        <option ></option>
+        <option >美国</option>
+        <option >俄罗斯</option>
+        <option >印度</option>
+        <option >巴西</option>
+    </select>
+    <p>{{selected}}</p>
+</div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"社会我的哥",
+            checked:false,
+            selected:''
+        }
+    })
+
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据监听</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    商品价格：{{price}}
+    <p>商品库存：{{stock}}</p>
+    <p>
+        选中商品的数量：
+        <button @click="add">+</button>
+        <span>{{num}}</span>
+        <button @click="sub">-</button>
+    </p>
+    <p>
+        总金额：{{total}}
+    </p>
+    <p>
+        优惠：{{down}}
+    </p>
+
+</div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            price:20,
+            stock:10, //库存量
+            num:0   //商品数量
+        },
+        computed:{
+            total: function () {  //总金额
+                return this.num * this.price
+            },
+            down: function () {
+                if (this.total >= 100) {
+                    return "包邮"
+                } else {
+                    return "不包邮"
+                }
+            }
+        },
+        methods:{
+            add: function () { //加
+                this.num++
+            },
+            sub:function () { //减
+                this.num--
+            }
+        },
+        watch:{ //监听
+            // newvalue变化后的新值，oldvalue未变化前的值
+            num: function (newvalue,oldvalue) {
+                // console.log(newvalue,oldvalue)
+                if (newvalue > this.stock || newvalue <0) {
+                    this.num = oldvalue
+                }
+            }
+        }
+    })
+
+    //方法和计算属性的区别
+    //计算属性依赖于缓存   方法每次都要重新计算
+    start = new Date()
+    sum = 0
+    for (i = 0;i<1000000;i++){
+       sum += vm.area
+    }
+    console.log(sum)
+    end = new Date()
+    console.log(end-start)
+</script>

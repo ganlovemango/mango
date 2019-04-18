@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件处理</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="say">哈喽</button>
+    <!--缩写-->
+    <button @click="say">vue</button>
+</div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        methods:{
+            // say当成函数名,他是事件处理函数，参数是事件对象
+            say: function (event) {
+                alert("哈喽")
+                console.log(event)
+            }
+        }
+    })
+</script>

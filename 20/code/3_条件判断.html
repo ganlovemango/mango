@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件判断</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--v-if 可以控制标签的显示和隐藏-->
+    <p v-if="isDisplay">
+        <h1 v-if="isDisplay">拼搏到无能为力</h1>
+    </p>
+
+    <!-- if - else-->
+    <p v-if="Math.random()*10 > 3">
+        天王盖地虎
+    </p>
+    <p v-else>
+        宝塔镇河妖
+    </p>
+
+    <!--v-if-else if-->
+    <p v-if="num <3 ">
+        {{ num + 1}}
+    </p>
+     <p v-else-if="num < 5 ">
+        {{ num + 10}}
+    </p>
+    <p v-else-if="num < 10 ">
+        {{ num + 100}}
+    </p>
+    <p v-else="num < 5 ">
+        {{ num + 1000}}
+    </p>
+
+    <!--v-show-->
+    <p v-show="isDisplay">
+        <!--文本差值中间可以写表达式-->
+        {{ '' + num + "ok"}}
+    </p>
+</div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isDisplay:true, //true显示，false就是隐藏
+            num:40000,
+        },
+    })
+</script>
